@@ -24,7 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "publish:npm": "SET NODE_ENV=production&& SET BABEL_ENV=production&& npx babel src --out-dir dist --copy-files"
+    "publish:npm": "SET NODE_ENV=production&& SET BABEL_ENV=production&& npx babel src --out-dir dist --copy-files&&npm publish"
   },
   "eslintConfig": {
     "extends": [
