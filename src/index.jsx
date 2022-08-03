@@ -1,7 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import NavBar from "./modules/NavBar";
+import NavBarMobile from "./modules/NavBarMobile";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <div/>
-);
+export {NavBar};
+export {NavBarMobile};
