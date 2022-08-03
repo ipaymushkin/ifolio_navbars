@@ -2,8 +2,6 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
-import { defaultStaticImg } from 'utils/constants';
-
 const Index = forwardRef(({ height, id, crop, source, alt, ignoreMaxHeight, isTurntable, isHero }, ref) => {
   const styles = { width: '100%', height: '100%', objectFit: 'cover' };
   if (!ignoreMaxHeight) {
@@ -12,7 +10,7 @@ const Index = forwardRef(({ height, id, crop, source, alt, ignoreMaxHeight, isTu
   return (
     <CropArea ref={ref} isTurntable={isTurntable} isHero={isHero} height={height} id={id}>
       <CropImageWrapper {...crop.imagePosition} isHero={isHero}>
-        <img src={id ? defaultStaticImg : source} alt={alt} style={styles} />
+        <img src={source} alt={alt} style={styles} />
       </CropImageWrapper>
     </CropArea>
   );
