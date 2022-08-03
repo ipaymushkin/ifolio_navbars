@@ -18,8 +18,6 @@ Object.defineProperty(exports, "NavBarMobile", {
   }
 });
 
-var _react = _interopRequireDefault(require("react"));
-
 var _NavBar = _interopRequireDefault(require("./modules/NavBar"));
 
 var _NavBarMobile = _interopRequireDefault(require("./modules/NavBarMobile"));
