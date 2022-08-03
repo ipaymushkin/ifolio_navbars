@@ -18,6 +18,6 @@ Object.defineProperty(exports, "NavBarMobile", {
   }
 });
 
-var _NavBar = _interopRequireDefault(require("../src/modules/NavBar"));
+var _NavBar = _interopRequireDefault(require("./modules/NavBar"));
 
-var _NavBarMobile = _interopRequireDefault(require("../src/modules/NavBarMobile"));
+var _NavBarMobile = _interopRequireDefault(require("./modules/NavBarMobile"));

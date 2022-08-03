@@ -1,5 +1,4 @@
-import NavBar from "../src/modules/NavBar";
-import NavBarMobile from "../src/modules/NavBarMobile";
+import NavBar from "./modules/NavBar";
+import NavBarMobile from "./modules/NavBarMobile";
 
-export {NavBar};
-export {NavBarMobile};
+export {NavBar, NavBarMobile};
