@@ -32,7 +32,9 @@ var NavBar = function NavBar(_ref) {
       _ref$disabledRedirect = _ref.disabledRedirect,
       disabledRedirect = _ref$disabledRedirect === void 0 ? false : _ref$disabledRedirect,
       _ref$disabledListClic = _ref.disabledListClick,
-      disabledListClick = _ref$disabledListClic === void 0 ? false : _ref$disabledListClic;
+      disabledListClick = _ref$disabledListClic === void 0 ? false : _ref$disabledListClic,
+      _ref$stickyOffset = _ref.stickyOffset,
+      stickyOffset = _ref$stickyOffset === void 0 ? 0 : _ref$stickyOffset;
   var height = config.height,
       navBarRegularColor = config.navBarRegularColor,
       logoAlignment = config.logoAlignment,
@@ -84,7 +86,8 @@ var NavBar = function NavBar(_ref) {
   return /*#__PURE__*/_react.default.createElement(Wrapper, {
     height: height,
     navBarRegularColor: navBarRegularColor,
-    navBarBehavior: navBarBehavior
+    navBarBehavior: navBarBehavior,
+    stickyOffset: stickyOffset
   }, /*#__PURE__*/_react.default.createElement(Menu, {
     height: height
   }, logoAlignment === 'left' && LogoComponent, /*#__PURE__*/_react.default.createElement(Container, {
@@ -144,15 +147,16 @@ var NavBar = function NavBar(_ref) {
   })), logoAlignment === 'right' && LogoComponent));
 };
 
-var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n  display: flex;\n  height: ", "px;\n  background-color: ", ";\n  padding: 0 50px;\n  width: 100%;\n  margin: auto;\n  align-items: center;\n  flex-shrink: 0;\n  z-index: 1000;\n\n  ", ";\n"])), function (_ref2) {
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n  display: flex;\n  height: ", "px;\n  background-color: ", ";\n  padding: 0 50px;\n  width: 100%;\n  margin: auto;\n  align-items: center;\n  flex-shrink: 0;\n  z-index: 1001;\n\n  ", ";\n"])), function (_ref2) {
   var height = _ref2.height;
   return height;
 }, function (_ref3) {
   var navBarRegularColor = _ref3.navBarRegularColor;
   return navBarRegularColor;
 }, function (_ref4) {
-  var navBarBehavior = _ref4.navBarBehavior;
-  return navBarBehavior === 'frozen' && (0, _styledComponents.css)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["\n      position: sticky;\n      top: 0;\n    "])));
+  var navBarBehavior = _ref4.navBarBehavior,
+      stickyOffset = _ref4.stickyOffset;
+  return navBarBehavior === 'frozen' && (0, _styledComponents.css)(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["\n      position: sticky;\n      top: ", "px;\n    "])), stickyOffset);
 });
 
 var Logo = _styledComponents.default.div(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["\n  width: ", "px;\n  height: ", "px;\n"])), _consts.logoImageWidth, _consts.logoImageHeight);

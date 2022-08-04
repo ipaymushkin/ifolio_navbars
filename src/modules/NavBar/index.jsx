@@ -142,7 +142,7 @@ const Wrapper = styled.div`
   margin: auto;
   align-items: center;
   flex-shrink: 0;
-  z-index: 1000;
+  z-index: 1001;
 
   ${({ navBarBehavior, stickyOffset }) =>
     navBarBehavior === 'frozen' &&
