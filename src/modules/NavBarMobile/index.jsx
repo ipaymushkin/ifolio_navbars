@@ -24,6 +24,7 @@ const NavBarMobile = ({config, stickyOffset = 0}) => {
 };
 
 const Wrapper = styled.div`
+  z-index: 1001;
   display: flex;
   width: 100%;
   padding: 15px 13px 16px 15px;

@@ -53,7 +53,7 @@ var NavBarMobile = function NavBarMobile(_ref) {
   }))));
 };
 
-var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n  display: flex;\n  width: 100%;\n  padding: 15px 13px 16px 15px;\n  border-radius: 3px;\n  border: solid 1px rgba(164, 198, 225, 0.39);\n  height: ", "px;\n  background-color: ", ";\n  align-items: center;\n  position: relative;\n  ", ";\n"])), function (_ref2) {
+var Wrapper = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n  z-index: 1001;\n  display: flex;\n  width: 100%;\n  padding: 15px 13px 16px 15px;\n  border-radius: 3px;\n  border: solid 1px rgba(164, 198, 225, 0.39);\n  height: ", "px;\n  background-color: ", ";\n  align-items: center;\n  position: relative;\n  ", ";\n"])), function (_ref2) {
   var height = _ref2.height;
   return height;
 }, function (_ref3) {
