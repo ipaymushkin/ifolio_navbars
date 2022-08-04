@@ -7,7 +7,7 @@ import NavBarPage from './Page';
 import NavBarButton from './Button';
 import CropImage from '../../components/CropImage';
 
-const NavBar = ({ config, disabledRedirect = false, disabledListClick = false }) => {
+const NavBar = ({ config, disabledRedirect = false, disabledListClick = false, stickyOffset = 0 }) => {
   const {
     height,
     navBarRegularColor,
@@ -58,7 +58,7 @@ const NavBar = ({ config, disabledRedirect = false, disabledListClick = false })
     </Logo>
   );
   return (
-    <Wrapper height={height} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior}>
+    <Wrapper height={height} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}>
       <Menu height={height}>
         {logoAlignment === 'left' && LogoComponent}
         <Container
@@ -129,7 +129,8 @@ const NavBar = ({ config, disabledRedirect = false, disabledListClick = false })
 NavBar.propTypes = {
   config: PropTypes.object,
   disabledRedirect: PropTypes.bool,
-  disabledListClick: PropTypes.bool
+  disabledListClick: PropTypes.bool,
+  stickyOffset: PropTypes.number,
 };
 
 const Wrapper = styled.div`
@@ -143,11 +144,11 @@ const Wrapper = styled.div`
   flex-shrink: 0;
   z-index: 1000;
 
-  ${({ navBarBehavior }) =>
+  ${({ navBarBehavior, stickyOffset }) =>
     navBarBehavior === 'frozen' &&
     css`
       position: sticky;
-      top: 0;
+      top: ${stickyOffset}px;
     `};
 `;
 
