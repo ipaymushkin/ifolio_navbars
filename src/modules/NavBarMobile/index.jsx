@@ -25,7 +25,7 @@ const NavBarMobile = ({ config }) => {
 
 const Wrapper = styled.div`
   display: flex;
-  width: 240px;
+  width: 100%;
   padding: 15px 13px 16px 15px;
   border-radius: 3px;
   border: solid 1px rgba(164, 198, 225, 0.39);

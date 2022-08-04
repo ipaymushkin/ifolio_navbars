@@ -1,6 +1,6 @@
 {
   "name": "ifolio_navbars",
-  "version": "1.6.7",
+  "version": "1.7.0",
   "private": false,
   "peerDependencies": {
     "react": "^18.2.0",
