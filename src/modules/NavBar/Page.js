@@ -1,10 +1,10 @@
 import React, { memo, useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { useOutsideClick } from '../../hooks/useOutsideClick';
+import { useOutsideClick } from '../../hooks/useOutsideClick.js';
 import { Icon } from '../../components/Icon';
-import ArrowIcon from '../../icons/ArrowIcon';
-import { openLinkInNewTab } from '../../utils/openLinkInNewTab';
+import ArrowIcon from '../../icons/ArrowIcon.js';
+import { openLinkInNewTab } from '../../utils/openLinkInNewTab.js';
 
 const NavBarPage = memo(
   ({

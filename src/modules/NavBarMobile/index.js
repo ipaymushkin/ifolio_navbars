@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
-import {getCropperQueryString} from '../../utils/getCropperQueryString';
-import {logoImageHeight, logoImageWidth} from '../../consts';
-import {Icon} from '../../components/Icon';
-import BurgerIcon from '../../icons/BurgerIcon';
-import CropImage from '../../components/CropImage';
+import {getCropperQueryString} from '../../utils/getCropperQueryString.js';
+import {logoImageHeight, logoImageWidth} from '../../consts.js';
+import {Icon} from "../../components/Icon";
+import BurgerIcon from '../../icons/BurgerIcon.js';
+import CropImage from '../../components/CropImage/index.js';
 
 const NavBarMobile = ({config, stickyOffset = 0}) => {
     const {mobileHeight, navBarRegularColor, mobileLogoAlignment, logoSrc, logoCropperOptions, navBarBehavior} = config;

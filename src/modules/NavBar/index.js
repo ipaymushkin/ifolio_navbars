@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { logoImageHeight, logoImageWidth } from '../../consts';
-import { getCropperQueryString } from '../../utils/getCropperQueryString';
-import NavBarPage from './Page';
-import NavBarButton from './Button';
-import CropImage from '../../components/CropImage';
+import { logoImageHeight, logoImageWidth } from '../../consts.js';
+import { getCropperQueryString } from '../../utils/getCropperQueryString.js';
+import NavBarPage from './Page.js';
+import NavBarButton from './Button.js';
+import CropImage from '../../components/CropImage/index.js';
 
 const NavBar = ({ config, disabledRedirect = false, disabledListClick = false, stickyOffset = 0 }) => {
   const {
