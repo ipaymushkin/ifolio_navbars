@@ -19,6 +19,7 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
+    "babel-loader": "^8.2.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -27,15 +28,20 @@
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-terser": "^7.0.2",
-    "styled-components": "^4.4.1"
+    "styled-components": "^5.3.5"
   },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^4.4.1",
+    "styled-components": "^5.3.5",
     "prop-types": "^15.8.1"
   },
   "files": [
     "dist/*"
-  ]
+  ],
+  "dependencies": {
+    "-": "0.0.1",
+    "html-loader": "^4.1.0",
+    "html-webpack-plugin": "^5.5.0"
+  }
 }
