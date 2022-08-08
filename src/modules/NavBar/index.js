@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { logoImageHeight, logoImageWidth } from '../../consts.js';
@@ -52,6 +52,7 @@ const NavBar = ({ config, disabledRedirect = false, disabledListClick = false, s
     dropdownSettingsHorizontalPadding,
     dropdownSettingsVerticalPadding
   } = config;
+
   const LogoComponent = (
     <Logo>
       <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)} crop={logoCropperOptions} />

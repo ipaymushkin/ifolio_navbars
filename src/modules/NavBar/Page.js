@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useOutsideClick } from '../../hooks/useOutsideClick.js';
