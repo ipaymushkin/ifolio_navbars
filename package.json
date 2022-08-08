@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rollup --config rollup.config.js",
     "release": "release-it --no-npm.publish",
-    "publish-package": "npm run build && npm publish"
+    "publish-package": "npm publish"
   },
   "author": "",
   "license": "ISC",
