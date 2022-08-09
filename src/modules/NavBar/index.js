@@ -7,7 +7,7 @@ import NavBarPage from './Page.js';
 import NavBarButton from './Button.js';
 import CropImage from '../../components/CropImage/index.js';
 
-const NavBar = ({ config, disabledRedirect = false, disabledListClick = false, stickyOffset = 0 }) => {
+const NavBar = ({ config, disabledRedirect = false, disabledListClick = false, stickyOffset = 0, isStatic = false }) => {
   const {
     height,
     navBarRegularColor,
@@ -115,6 +115,7 @@ const NavBar = ({ config, disabledRedirect = false, disabledListClick = false, s
                   dropdownSettingsTextItalic={dropdownSettingsTextItalic}
                   dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
                   dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
+                  isStatic={isStatic}
                 />
               );
             }
@@ -132,6 +133,7 @@ NavBar.propTypes = {
   disabledRedirect: PropTypes.bool,
   disabledListClick: PropTypes.bool,
   stickyOffset: PropTypes.number,
+  isStatic: PropTypes.bool,
 };
 
 const Wrapper = styled.div`

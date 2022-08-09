@@ -28,9 +28,10 @@ const NavBarPage = memo(
     dropdownSettingsTextUnderline,
     dropdownSettingsTextItalic,
     dropdownSettingsHorizontalPadding,
-    dropdownSettingsVerticalPadding
+    dropdownSettingsVerticalPadding,
+    isStatic
   }) => {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(isStatic);
 
     const ref = useOutsideClick(() => {
       setOpen(false);
@@ -52,6 +53,8 @@ const NavBarPage = memo(
           navBarTextHoverColor={navBarTextHoverColor}
           navBarTextClickedColor={navBarTextClickedColor}
           onClick={onClick}
+          data-link={link}
+          data-isdropdown={isDropdown}
         >
           {title}{' '}
           {isDropdown && (
@@ -91,6 +94,7 @@ const NavBarPage = memo(
                     setOpen(false);
                   }
                 }}
+                data-link={el.link}
               >
                 {el.title}
               </DropdownElement>

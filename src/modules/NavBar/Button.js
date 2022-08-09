@@ -39,6 +39,7 @@ const NavBarButton = memo(
         buttonSettingsTextColorHover={buttonSettingsTextColorHover}
         buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
         onClick={onClick}
+        data-link={link}
       >
         {title}
       </Wrapper>
