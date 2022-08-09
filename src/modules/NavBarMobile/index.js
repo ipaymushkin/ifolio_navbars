@@ -7,10 +7,10 @@ import {Icon} from "../../components/Icon";
 import BurgerIcon from '../../icons/BurgerIcon.js';
 import CropImage from '../../components/CropImage/index.js';
 
-const NavBarMobile = ({config, stickyOffset = 0}) => {
+const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
     const {mobileHeight, navBarRegularColor, mobileLogoAlignment, logoSrc, logoCropperOptions, navBarBehavior} = config;
     return (
-        <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset} className={"navbar-mobile"}>
+        <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset} className={"navbar-mobile"} isConstructor={isConstructor}>
             <IconWrapper>
                 <Icon icon={BurgerIcon} color={'#ffffff'}/>
             </IconWrapper>
@@ -34,8 +34,8 @@ const Wrapper = styled.div`
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
   align-items: center;
   position: relative;
-  ${({navBarBehavior, stickyOffset}) =>
-          navBarBehavior === 'frozen' &&
+  ${({navBarBehavior, stickyOffset, isConstructor}) =>
+          navBarBehavior === 'frozen' && !isConstructor &&
           css`
             position: fixed;
             top: ${stickyOffset}px;
