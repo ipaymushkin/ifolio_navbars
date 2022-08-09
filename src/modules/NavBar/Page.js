@@ -68,7 +68,7 @@ const NavBarPage = memo(
           )}
         </Wrapper>
         {open && (
-          <DropdownWrapper>
+          <DropdownWrapper data-list={true} className={"navbar-list"}>
             {children.map((el) => (
               <DropdownElement
                 key={el.id}
