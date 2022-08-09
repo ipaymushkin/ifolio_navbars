@@ -53,7 +53,7 @@ const NavBarPage = memo(
           navBarTextHoverColor={navBarTextHoverColor}
           navBarTextClickedColor={navBarTextClickedColor}
           onClick={onClick}
-          data-link={link}
+          data-link={!isDropdown && link}
           data-isdropdown={isDropdown}
         >
           {title}{' '}
@@ -67,7 +67,7 @@ const NavBarPage = memo(
             </IconWrapper>
           )}
         </Wrapper>
-        {open && (
+        {open && isDropdown && (
           <DropdownWrapper data-list={true} className={"navbar-list"}>
             {children.map((el) => (
               <DropdownElement
