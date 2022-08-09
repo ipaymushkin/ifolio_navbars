@@ -10,7 +10,7 @@ import CropImage from '../../components/CropImage/index.js';
 const NavBarMobile = ({config, stickyOffset = 0}) => {
     const {mobileHeight, navBarRegularColor, mobileLogoAlignment, logoSrc, logoCropperOptions, navBarBehavior} = config;
     return (
-        <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}>
+        <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset} className={"navbar-mobile"}>
             <IconWrapper>
                 <Icon icon={BurgerIcon} color={'#ffffff'}/>
             </IconWrapper>

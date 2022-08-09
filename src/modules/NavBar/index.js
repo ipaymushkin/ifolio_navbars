@@ -59,7 +59,7 @@ const NavBar = ({ config, disabledRedirect = false, disabledListClick = false, s
     </Logo>
   );
   return (
-    <Wrapper height={height} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}>
+    <Wrapper height={height} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset} className={"navbar-desktop"}>
       <Menu height={height}>
         {logoAlignment === 'left' && LogoComponent}
         <Container
