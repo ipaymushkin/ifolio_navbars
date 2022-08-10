@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   ${({navBarBehavior, stickyOffset, isConstructor}) =>
           navBarBehavior === 'frozen' && !isConstructor &&
           css`
-            position: fixed;
+            position: sticky;
             top: ${stickyOffset}px;
           `};
 `;
