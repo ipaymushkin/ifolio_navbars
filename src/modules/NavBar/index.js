@@ -86,9 +86,9 @@ const NavBar = ({
                     logoAlignment={logoAlignment}
                 >
                     {
-                        (structure || []).length === 0 && isPreview ? <div>Navigation will preview here once created</div> :
+                        structure?.length === 0 && isPreview ? <PreviewText>Navigation will preview here once created</PreviewText> :
                             <>
-                                {(structure || []).map((el) => {
+                                {structure?.map((el) => {
                                     let component = null;
                                     if (el.type === 'button') {
                                         component = (
@@ -154,6 +154,17 @@ NavBar.propTypes = {
     hideLogo: PropTypes.bool,
     isPreview: PropTypes.bool,
 };
+
+const PreviewText = styled.div`
+  font-family: Montserrat-bold, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+`
 
 const Wrapper = styled.div`
   display: flex;
