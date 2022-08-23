@@ -1,8 +1,8 @@
 import React, {memo, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import {openLinkInNewTab} from '../../utils/openLinkInNewTab.js';
 import Row from "./Row";
+import {ButtonWrapper} from "../styled";
 
 const NavBarButton = memo(
     ({
@@ -29,7 +29,7 @@ const NavBarButton = memo(
         }, [link, disabledRedirect]);
         return (
             <Row onClick={onClick} link={link} mobileTextAlignment={mobileTextAlignment}>
-                <Wrapper
+                <ButtonWrapper
                     buttonSettingsRoundCorners={buttonSettingsRoundCorners}
                     buttonSettingsBorderWidth={buttonSettingsBorderWidth}
                     buttonSettingsRegularBorder={buttonSettingsRegularBorder}
@@ -43,37 +43,11 @@ const NavBarButton = memo(
                     buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
                 >
                     {title}
-                </Wrapper>
+                </ButtonWrapper>
             </Row>
         );
     }
 );
-
-const Wrapper = styled.div`
-  margin: 10px 0;
-  line-height: normal;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  border-radius: ${({buttonSettingsRoundCorners}) => buttonSettingsRoundCorners}px;
-  border: ${({buttonSettingsBorderWidth}) => buttonSettingsBorderWidth}px solid ${({buttonSettingsRegularBorder}) => buttonSettingsRegularBorder};
-  background: ${({buttonSettingsRegularFill}) => buttonSettingsRegularFill};
-  padding: ${({buttonSettingsVerticalPadding, buttonSettingsHorizontalPadding}) =>
-          `${buttonSettingsVerticalPadding}px ${buttonSettingsHorizontalPadding}px`};
-  color: ${({buttonSettingsTextColorRegular}) => buttonSettingsTextColorRegular};
-
-  &:hover {
-    border: ${({buttonSettingsBorderWidth}) => buttonSettingsBorderWidth}px solid ${({buttonSettingsHoverClickedBorder}) => buttonSettingsHoverClickedBorder};
-    background: ${({buttonSettingsHoverClickedFill}) => buttonSettingsHoverClickedFill};
-    color: ${({buttonSettingsTextColorHover}) => buttonSettingsTextColorHover};
-  }
-
-  &:active {
-    border: ${({buttonSettingsBorderWidth}) => buttonSettingsBorderWidth}px solid ${({buttonSettingsHoverClickedBorder}) => buttonSettingsHoverClickedBorder};
-    background: ${({buttonSettingsHoverClickedFill}) => buttonSettingsHoverClickedFill};
-    color: ${({buttonSettingsTextColorClicked}) => buttonSettingsTextColorClicked};
-  }
-`;
 
 NavBarButton.propTypes = {
     disabledRedirect: PropTypes.bool,

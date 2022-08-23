@@ -5,6 +5,7 @@ import { useOutsideClick } from '../../hooks/useOutsideClick.js';
 import { Icon } from '../../components/Icon';
 import ArrowIcon from '../../icons/ArrowIcon.js';
 import { openLinkInNewTab } from '../../utils/openLinkInNewTab.js';
+import {DropdownElement, IconWrapper, PageWrapper} from "../styled";
 
 const NavBarPage = memo(
   ({
@@ -49,7 +50,7 @@ const NavBarPage = memo(
 
     return (
       <Container ref={ref}>
-        <Wrapper
+        <PageWrapper
           navBarTextHoverColor={navBarTextHoverColor}
           navBarTextClickedColor={navBarTextClickedColor}
           onClick={onClick}
@@ -66,7 +67,7 @@ const NavBarPage = memo(
               )}
             </IconWrapper>
           )}
-        </Wrapper>
+        </PageWrapper>
         {open && isDropdown && (
           <DropdownWrapper data-list={true} className={"navbar-list"}>
             {children.map((el) => (
@@ -110,21 +111,6 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  height: 100%;
-
-  &:hover {
-    color: ${({ navBarTextHoverColor }) => navBarTextHoverColor};
-  }
-  &:active {
-    color: ${({ navBarTextClickedColor }) => navBarTextClickedColor};
-  }
-`;
-
 const DropdownWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -134,35 +120,6 @@ const DropdownWrapper = styled.div`
   z-index: 1;
 `;
 
-const IconWrapper = styled.div``;
-
-const DropdownElement = styled.div`
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  cursor: pointer;
-  background: ${({ dropdownSettingsInactiveFill }) => dropdownSettingsInactiveFill};
-  border: 2px solid ${({ dropdownSettingsInactiveBorder }) => dropdownSettingsInactiveBorder};
-  color: ${({ dropdownSettingsTextColorRegular }) => dropdownSettingsTextColorRegular};
-  font-size: ${({ dropdownSettingsTextFontSize }) => dropdownSettingsTextFontSize}px;
-  font-family: ${({ dropdownSettingsTextFontFamily }) => dropdownSettingsTextFontFamily};
-  font-weight: ${({ dropdownSettingsTextBold }) => (dropdownSettingsTextBold ? 'bold' : 'normal')};
-  font-style: ${({ dropdownSettingsTextItalic }) => (dropdownSettingsTextItalic ? 'italic' : 'normal')};
-  text-decoration: ${({ dropdownSettingsTextUnderline }) => (dropdownSettingsTextUnderline ? 'underline' : 'none')};
-  padding: ${({ dropdownSettingsVerticalPadding, dropdownSettingsHorizontalPadding }) =>
-    `${dropdownSettingsVerticalPadding}px ${dropdownSettingsHorizontalPadding}px`};
-
-  &:hover {
-    background: ${({ dropdownSettingsHoverClickedFill }) => dropdownSettingsHoverClickedFill};
-    border: 2px solid ${({ dropdownSettingsHoverClickedBorder }) => dropdownSettingsHoverClickedBorder};
-    color: ${({ dropdownSettingsTextColorHover }) => dropdownSettingsTextColorHover};
-  }
-  &:active {
-    background: ${({ dropdownSettingsHoverClickedFill }) => dropdownSettingsHoverClickedFill};
-    border: 2px solid ${({ dropdownSettingsHoverClickedBorder }) => dropdownSettingsHoverClickedBorder};
-    color: ${({ dropdownSettingsTextColorClicked }) => dropdownSettingsTextColorClicked};
-  }
-`;
 
 NavBarPage.propTypes = {
   link: PropTypes.string,

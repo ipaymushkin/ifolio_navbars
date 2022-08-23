@@ -60,7 +60,7 @@ const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
                     </Logo>
                 </LogoWrapper>
             </Wrapper>
-            <ListWrapper offsetTop={stickyOffset + mobileHeight} open={open} navBarRegularColor={navBarRegularColor}
+            <ListWrapper offsetTop={stickyOffset + mobileHeight} isConstructor={isConstructor} open={open} navBarRegularColor={navBarRegularColor}
                          mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
                          navBarTextBold={navBarTextBold}
                          navBarTextItalic={navBarTextItalic}
@@ -117,7 +117,7 @@ const ListWrapper = styled.div`
   position: absolute;
   top: ${({offsetTop}) => offsetTop}px;
   width: 100%;
-  height: 0;
+  height: ${({isConstructor}) => isConstructor ? 'auto' : 0};
   transition: height 0.5s ease;
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
   overflow: hidden;
@@ -127,8 +127,8 @@ const ListWrapper = styled.div`
   font-style: ${({navBarTextItalic}) => (navBarTextItalic ? 'italic' : 'normal')};
   text-decoration: ${({navBarTextUnderline}) => (navBarTextUnderline ? 'underline' : 'none')};
   color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
-  ${({offsetTop, open}) =>
-          open &&
+  ${({offsetTop, open, isConstructor}) =>
+          !isConstructor && open &&
           css`
             height: calc(100vh - ${offsetTop}px);
           `};

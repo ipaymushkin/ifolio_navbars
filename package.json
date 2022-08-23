@@ -6,8 +6,7 @@
   "module": "dist/index.esm.js",
   "scripts": {
     "build": "rollup --config rollup.config.js",
-    "release": "release-it --no-npm.publish",
-    "publish-package": "npm publish"
+    "release": "release-it --no-npm.publish && npm publish"
   },
   "author": "",
   "license": "ISC",
