@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
 import {getCropperQueryString} from '../../utils/getCropperQueryString.js';
@@ -8,12 +8,21 @@ import BurgerIcon from '../../icons/BurgerIcon.js';
 import CropImage from '../../components/CropImage/index.js';
 
 const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
+
+    const [open, setOpen] = useState(isConstructor);
     const {mobileHeight, navBarRegularColor, mobileLogoAlignment, logoSrc, logoCropperOptions, navBarBehavior} = config;
+
+    const onClick = useCallback(() => {
+        if (!isConstructor) {
+            setOpen(value => !value);
+        }
+    }, [isConstructor]);
+
     return (
         <Container className={"navbar-mobile"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
                    isConstructor={isConstructor}>
             <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor}>
-                <IconWrapper>
+                <IconWrapper onClick={onClick}>
                     <Icon icon={BurgerIcon} color={'#ffffff'}/>
                 </IconWrapper>
                 <LogoWrapper mobileLogoAlignment={mobileLogoAlignment}>
@@ -23,7 +32,7 @@ const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
                     </Logo>
                 </LogoWrapper>
             </Wrapper>
-            <ListWrapper offsetTop={stickyOffset + mobileHeight}>
+            <ListWrapper offsetTop={stickyOffset + mobileHeight} open={open} navBarRegularColor={navBarRegularColor}>
                 wrapper
             </ListWrapper>
         </Container>
@@ -44,10 +53,19 @@ const Container = styled.div`
 `;
 
 const ListWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: ${({offsetTop}) => offsetTop}px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: ${({offsetTop}) => offsetTop}px;
+  width: 100%;
+  height: 0;
+  transition: height 0.5s ease;
+  background-color: ${({navBarRegularColor}) => navBarRegularColor};
+  ${({stickyOffset, open}) =>
+          open &&
+          css`
+            height: calc(100vh - ${stickyOffset}px);
+          `};
 `
 
 const Wrapper = styled.div`
