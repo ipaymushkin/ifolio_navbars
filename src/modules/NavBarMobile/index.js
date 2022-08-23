@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {Fragment, useCallback, useState} from 'react';
 import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
 import {getCropperQueryString} from '../../utils/getCropperQueryString.js';
@@ -6,11 +6,39 @@ import {logoImageHeight, logoImageWidth} from '../../consts.js';
 import {Icon} from "../../components/Icon";
 import BurgerIcon from '../../icons/BurgerIcon.js';
 import CropImage from '../../components/CropImage/index.js';
+import NavBarButton from "./Button";
 
 const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
 
     const [open, setOpen] = useState(isConstructor);
-    const {mobileHeight, navBarRegularColor, mobileLogoAlignment, logoSrc, logoCropperOptions, navBarBehavior} = config;
+    const {
+        mobileHeight,
+        navBarRegularColor,
+        mobileLogoAlignment,
+        logoSrc,
+        logoCropperOptions,
+        navBarBehavior,
+        mobileFontSize,
+        navBarTextFontFamily,
+        navBarTextBold,
+        navBarTextItalic,
+        navBarTextUnderline,
+        navBarTextRegularColor,
+        navBarTextSpacing,
+        buttonSettingsRoundCorners,
+        buttonSettingsBorderWidth,
+        buttonSettingsRegularBorder,
+        buttonSettingsRegularFill,
+        buttonSettingsHorizontalPadding,
+        buttonSettingsVerticalPadding,
+        buttonSettingsHoverClickedFill,
+        buttonSettingsHoverClickedBorder,
+        buttonSettingsTextColorRegular,
+        buttonSettingsTextColorHover,
+        buttonSettingsTextColorClicked,
+        mobileTextAlignment,
+        structure
+    } = config;
 
     const onClick = useCallback(() => {
         if (!isConstructor) {
@@ -32,8 +60,39 @@ const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
                     </Logo>
                 </LogoWrapper>
             </Wrapper>
-            <ListWrapper offsetTop={stickyOffset + mobileHeight} open={open} navBarRegularColor={navBarRegularColor}>
-                wrapper
+            <ListWrapper offsetTop={stickyOffset + mobileHeight} open={open} navBarRegularColor={navBarRegularColor}
+                         mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
+                         navBarTextBold={navBarTextBold}
+                         navBarTextItalic={navBarTextItalic}
+                         navBarTextUnderline={navBarTextUnderline}
+                         navBarTextRegularColor={navBarTextRegularColor}
+                         navBarTextSpacing={navBarTextSpacing}>
+                {
+                    structure?.map(el => {
+                        let component = 'any';
+                        if (el.type === 'button') {
+                            component = (
+                                <NavBarButton
+                                    {...el}
+                                    mobileTextAlignment={mobileTextAlignment}
+                                    disabledRedirect={isConstructor}
+                                    buttonSettingsRoundCorners={buttonSettingsRoundCorners}
+                                    buttonSettingsBorderWidth={buttonSettingsBorderWidth}
+                                    buttonSettingsRegularBorder={buttonSettingsRegularBorder}
+                                    buttonSettingsRegularFill={buttonSettingsRegularFill}
+                                    buttonSettingsVerticalPadding={buttonSettingsVerticalPadding}
+                                    buttonSettingsHorizontalPadding={buttonSettingsHorizontalPadding}
+                                    buttonSettingsHoverClickedBorder={buttonSettingsHoverClickedBorder}
+                                    buttonSettingsHoverClickedFill={buttonSettingsHoverClickedFill}
+                                    buttonSettingsTextColorRegular={buttonSettingsTextColorRegular}
+                                    buttonSettingsTextColorHover={buttonSettingsTextColorHover}
+                                    buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
+                                />
+                            );
+                        }
+                        return <Fragment key={el.id}>{component}</Fragment>;
+                    })
+                }
             </ListWrapper>
         </Container>
     );
@@ -61,10 +120,17 @@ const ListWrapper = styled.div`
   height: 0;
   transition: height 0.5s ease;
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
-  ${({stickyOffset, open}) =>
+  overflow: hidden;
+  font-size: ${({mobileFontSize}) => mobileFontSize}px;
+  font-family: ${({navBarTextFontFamily}) => navBarTextFontFamily};
+  font-weight: ${({navBarTextBold}) => (navBarTextBold ? 'bold' : 'normal')};
+  font-style: ${({navBarTextItalic}) => (navBarTextItalic ? 'italic' : 'normal')};
+  text-decoration: ${({navBarTextUnderline}) => (navBarTextUnderline ? 'underline' : 'none')};
+  color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
+  ${({offsetTop, open}) =>
           open &&
           css`
-            height: calc(100vh - ${stickyOffset}px);
+            height: calc(100vh - ${offsetTop}px);
           `};
 `
 
