@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useState} from 'react';
+import React, {Fragment, useCallback, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
 import {getCropperQueryString} from '../../utils/getCropperQueryString.js';
@@ -15,6 +15,13 @@ const NavBarMobile = ({
                       }) => {
 
     const [open, setOpen] = useState(isConstructor);
+
+    useEffect(() => {
+        if (!isConstructor) {
+            document.body.style.overflowY = open ? 'hidden' : "auto";
+        }
+    }, [isConstructor, open])
+
     const {
         mobileHeight,
         navBarRegularColor,
@@ -66,7 +73,8 @@ const NavBarMobile = ({
                     </Logo>
                 </LogoWrapper>
             </Wrapper>
-            <ListWrapper mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight} isConstructor={isConstructor} open={open}
+            <ListWrapper mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight}
+                         isConstructor={isConstructor} open={open}
                          navBarRegularColor={navBarRegularColor}
                          mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
                          navBarTextBold={navBarTextBold}
