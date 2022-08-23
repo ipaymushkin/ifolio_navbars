@@ -7,8 +7,12 @@ import {Icon} from "../../components/Icon";
 import BurgerIcon from '../../icons/BurgerIcon.js';
 import CropImage from '../../components/CropImage/index.js';
 import NavBarButton from "./Button";
+import NavBarPage from "./Page";
 
-const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
+const NavBarMobile = ({
+                          config, stickyOffset = 0, isConstructor = false, isStatic = false, disabledRedirect = false,
+                          disabledListClick = false
+                      }) => {
 
     const [open, setOpen] = useState(isConstructor);
     const {
@@ -37,6 +41,22 @@ const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
         buttonSettingsTextColorHover,
         buttonSettingsTextColorClicked,
         mobileTextAlignment,
+        dropdownSettingsInactiveFill,
+        dropdownSettingsInactiveBorder,
+        dropdownSettingsHoverClickedFill,
+        dropdownSettingsHoverClickedBorder,
+        dropdownSettingsTextColorRegular,
+        dropdownSettingsTextColorHover,
+        dropdownSettingsTextColorClicked,
+        dropdownSettingsTextFontFamily,
+        dropdownSettingsTextFontSize,
+        dropdownSettingsTextBold,
+        dropdownSettingsTextUnderline,
+        dropdownSettingsTextItalic,
+        dropdownSettingsHorizontalPadding,
+        dropdownSettingsVerticalPadding,
+        navBarTextHoverColor,
+        navBarTextClickedColor,
         structure
     } = config;
 
@@ -60,7 +80,8 @@ const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
                     </Logo>
                 </LogoWrapper>
             </Wrapper>
-            <ListWrapper offsetTop={stickyOffset + mobileHeight} isConstructor={isConstructor} open={open} navBarRegularColor={navBarRegularColor}
+            <ListWrapper offsetTop={stickyOffset + mobileHeight} isConstructor={isConstructor} open={open}
+                         navBarRegularColor={navBarRegularColor}
                          mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
                          navBarTextBold={navBarTextBold}
                          navBarTextItalic={navBarTextItalic}
@@ -87,6 +108,32 @@ const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
                                     buttonSettingsTextColorRegular={buttonSettingsTextColorRegular}
                                     buttonSettingsTextColorHover={buttonSettingsTextColorHover}
                                     buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
+                                />
+                            );
+                        } else if (el.type === 'page') {
+                            component = (
+                                <NavBarPage
+                                    {...el}
+                                    disabledRedirect={disabledRedirect}
+                                    disabledListClick={disabledListClick}
+                                    navBarTextHoverColor={navBarTextHoverColor}
+                                    navBarTextClickedColor={navBarTextClickedColor}
+                                    dropdownSettingsInactiveFill={dropdownSettingsInactiveFill}
+                                    dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}
+                                    dropdownSettingsHoverClickedFill={dropdownSettingsHoverClickedFill}
+                                    dropdownSettingsHoverClickedBorder={dropdownSettingsHoverClickedBorder}
+                                    dropdownSettingsTextColorRegular={dropdownSettingsTextColorRegular}
+                                    dropdownSettingsTextColorHover={dropdownSettingsTextColorHover}
+                                    dropdownSettingsTextColorClicked={dropdownSettingsTextColorClicked}
+                                    dropdownSettingsTextFontFamily={dropdownSettingsTextFontFamily}
+                                    dropdownSettingsTextFontSize={dropdownSettingsTextFontSize}
+                                    dropdownSettingsTextBold={dropdownSettingsTextBold}
+                                    dropdownSettingsTextUnderline={dropdownSettingsTextUnderline}
+                                    dropdownSettingsTextItalic={dropdownSettingsTextItalic}
+                                    dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
+                                    dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
+                                    mobileTextAlignment={mobileTextAlignment}
+                                    isStatic={isStatic}
                                 />
                             );
                         }
