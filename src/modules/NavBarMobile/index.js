@@ -73,7 +73,7 @@ const NavBarMobile = ({
                     </Logo>
                 </LogoWrapper>
             </Wrapper>
-            <ListWrapper mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight}
+            <ListWrapper data-mobile-menu={true} mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight}
                          isConstructor={isConstructor} open={open}
                          navBarRegularColor={navBarRegularColor}
                          mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
