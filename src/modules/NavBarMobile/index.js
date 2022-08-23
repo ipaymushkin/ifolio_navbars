@@ -61,10 +61,10 @@ const NavBarMobile = ({
     } = config;
 
     const onClick = useCallback(() => {
-        if (!isConstructor) {
+        if (!isConstructor && !disabledListClick) {
             setOpen(value => !value);
         }
-    }, [isConstructor]);
+    }, [isConstructor, disabledListClick]);
 
     return (
         <Container className={"navbar-mobile"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
