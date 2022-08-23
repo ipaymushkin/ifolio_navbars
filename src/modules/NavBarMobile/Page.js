@@ -5,7 +5,6 @@ import ArrowIcon from '../../icons/ArrowIcon.js';
 import {openLinkInNewTab} from '../../utils/openLinkInNewTab.js';
 import Row from "./Row";
 import {IconWrapper, PageWrapper} from "../styled";
-import styled from "styled-components";
 
 const NavBarPage = memo(
     ({
@@ -16,20 +15,6 @@ const NavBarPage = memo(
          navBarTextHoverColor,
          navBarTextClickedColor,
          children,
-         dropdownSettingsInactiveFill,
-         dropdownSettingsInactiveBorder,
-         dropdownSettingsHoverClickedFill,
-         dropdownSettingsHoverClickedBorder,
-         dropdownSettingsTextColorRegular,
-         dropdownSettingsTextColorHover,
-         dropdownSettingsTextColorClicked,
-         dropdownSettingsTextFontFamily,
-         dropdownSettingsTextFontSize,
-         dropdownSettingsTextBold,
-         dropdownSettingsTextUnderline,
-         dropdownSettingsTextItalic,
-         dropdownSettingsHorizontalPadding,
-         dropdownSettingsVerticalPadding,
          mobileTextAlignment,
          isStatic
      }) => {
@@ -81,24 +66,12 @@ const NavBarPage = memo(
                                 link={el.link}
                                 mobileTextAlignment={mobileTextAlignment}
                             >
-                                <DropdownElement
-                                    dropdownSettingsInactiveFill={dropdownSettingsInactiveFill}
-                                    dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}
-                                    dropdownSettingsHoverClickedFill={dropdownSettingsHoverClickedFill}
-                                    dropdownSettingsHoverClickedBorder={dropdownSettingsHoverClickedBorder}
-                                    dropdownSettingsTextColorRegular={dropdownSettingsTextColorRegular}
-                                    dropdownSettingsTextColorHover={dropdownSettingsTextColorHover}
-                                    dropdownSettingsTextColorClicked={dropdownSettingsTextColorClicked}
-                                    dropdownSettingsTextFontFamily={dropdownSettingsTextFontFamily}
-                                    dropdownSettingsTextFontSize={dropdownSettingsTextFontSize}
-                                    dropdownSettingsTextBold={dropdownSettingsTextBold}
-                                    dropdownSettingsTextUnderline={dropdownSettingsTextUnderline}
-                                    dropdownSettingsTextItalic={dropdownSettingsTextItalic}
-                                    dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
-                                    dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
+                                <PageWrapper
+                                    navBarTextHoverColor={navBarTextHoverColor}
+                                    navBarTextClickedColor={navBarTextClickedColor}
                                 >
                                     {el.title}
-                                </DropdownElement>
+                                </PageWrapper>
                             </Row>
                         ))}
                     </>
@@ -108,35 +81,6 @@ const NavBarPage = memo(
     }
 );
 
-const DropdownElement = styled.div`
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  cursor: pointer;
-  background: ${({dropdownSettingsInactiveFill}) => dropdownSettingsInactiveFill};
-  border: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
-  color: ${({dropdownSettingsTextColorRegular}) => dropdownSettingsTextColorRegular};
-  font-size: ${({dropdownSettingsTextFontSize}) => dropdownSettingsTextFontSize}px;
-  font-family: ${({dropdownSettingsTextFontFamily}) => dropdownSettingsTextFontFamily};
-  font-weight: ${({dropdownSettingsTextBold}) => (dropdownSettingsTextBold ? 'bold' : 'normal')};
-  font-style: ${({dropdownSettingsTextItalic}) => (dropdownSettingsTextItalic ? 'italic' : 'normal')};
-  text-decoration: ${({dropdownSettingsTextUnderline}) => (dropdownSettingsTextUnderline ? 'underline' : 'none')};
-  padding: ${({dropdownSettingsVerticalPadding, dropdownSettingsHorizontalPadding}) =>
-    `${dropdownSettingsVerticalPadding}px ${dropdownSettingsHorizontalPadding}px`};
-
-  &:hover {
-    background: ${({dropdownSettingsHoverClickedFill}) => dropdownSettingsHoverClickedFill};
-    border: 2px solid ${({dropdownSettingsHoverClickedBorder}) => dropdownSettingsHoverClickedBorder};
-    color: ${({dropdownSettingsTextColorHover}) => dropdownSettingsTextColorHover};
-  }
-
-  &:active {
-    background: ${({dropdownSettingsHoverClickedFill}) => dropdownSettingsHoverClickedFill};
-    border: 2px solid ${({dropdownSettingsHoverClickedBorder}) => dropdownSettingsHoverClickedBorder};
-    color: ${({dropdownSettingsTextColorClicked}) => dropdownSettingsTextColorClicked};
-  }
-`;
-
 NavBarPage.propTypes = {
     link: PropTypes.string,
     disabledRedirect: PropTypes.bool,
@@ -145,20 +89,6 @@ NavBarPage.propTypes = {
     navBarTextHoverColor: PropTypes.string,
     navBarTextClickedColor: PropTypes.string,
     children: PropTypes.array,
-    dropdownSettingsInactiveFill: PropTypes.string,
-    dropdownSettingsInactiveBorder: PropTypes.string,
-    dropdownSettingsHoverClickedFill: PropTypes.string,
-    dropdownSettingsHoverClickedBorder: PropTypes.string,
-    dropdownSettingsTextColorRegular: PropTypes.string,
-    dropdownSettingsTextColorHover: PropTypes.string,
-    dropdownSettingsTextColorClicked: PropTypes.string,
-    dropdownSettingsTextFontFamily: PropTypes.string,
-    dropdownSettingsTextFontSize: PropTypes.number,
-    dropdownSettingsTextBold: PropTypes.bool,
-    dropdownSettingsTextUnderline: PropTypes.bool,
-    dropdownSettingsTextItalic: PropTypes.bool,
-    dropdownSettingsHorizontalPadding: PropTypes.number,
-    dropdownSettingsVerticalPadding: PropTypes.number,
     mobileTextAlignment: PropTypes.string,
 };
 

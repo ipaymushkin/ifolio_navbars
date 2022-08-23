@@ -41,20 +41,6 @@ const NavBarMobile = ({
         buttonSettingsTextColorHover,
         buttonSettingsTextColorClicked,
         mobileTextAlignment,
-        dropdownSettingsInactiveFill,
-        dropdownSettingsInactiveBorder,
-        dropdownSettingsHoverClickedFill,
-        dropdownSettingsHoverClickedBorder,
-        dropdownSettingsTextColorRegular,
-        dropdownSettingsTextColorHover,
-        dropdownSettingsTextColorClicked,
-        dropdownSettingsTextFontFamily,
-        dropdownSettingsTextFontSize,
-        dropdownSettingsTextBold,
-        dropdownSettingsTextUnderline,
-        dropdownSettingsTextItalic,
-        dropdownSettingsHorizontalPadding,
-        dropdownSettingsVerticalPadding,
         navBarTextHoverColor,
         navBarTextClickedColor,
         structure
@@ -118,20 +104,6 @@ const NavBarMobile = ({
                                     disabledListClick={disabledListClick}
                                     navBarTextHoverColor={navBarTextHoverColor}
                                     navBarTextClickedColor={navBarTextClickedColor}
-                                    dropdownSettingsInactiveFill={dropdownSettingsInactiveFill}
-                                    dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}
-                                    dropdownSettingsHoverClickedFill={dropdownSettingsHoverClickedFill}
-                                    dropdownSettingsHoverClickedBorder={dropdownSettingsHoverClickedBorder}
-                                    dropdownSettingsTextColorRegular={dropdownSettingsTextColorRegular}
-                                    dropdownSettingsTextColorHover={dropdownSettingsTextColorHover}
-                                    dropdownSettingsTextColorClicked={dropdownSettingsTextColorClicked}
-                                    dropdownSettingsTextFontFamily={dropdownSettingsTextFontFamily}
-                                    dropdownSettingsTextFontSize={dropdownSettingsTextFontSize}
-                                    dropdownSettingsTextBold={dropdownSettingsTextBold}
-                                    dropdownSettingsTextUnderline={dropdownSettingsTextUnderline}
-                                    dropdownSettingsTextItalic={dropdownSettingsTextItalic}
-                                    dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
-                                    dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
                                     mobileTextAlignment={mobileTextAlignment}
                                     isStatic={isStatic}
                                 />
