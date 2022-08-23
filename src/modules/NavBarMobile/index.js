@@ -10,29 +10,27 @@ import CropImage from '../../components/CropImage/index.js';
 const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
     const {mobileHeight, navBarRegularColor, mobileLogoAlignment, logoSrc, logoCropperOptions, navBarBehavior} = config;
     return (
-        <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset} className={"navbar-mobile"} isConstructor={isConstructor}>
-            <IconWrapper>
-                <Icon icon={BurgerIcon} color={'#ffffff'}/>
-            </IconWrapper>
-            <LogoWrapper mobileLogoAlignment={mobileLogoAlignment}>
-                <Logo>
-                    <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)} crop={logoCropperOptions}/>
-                </Logo>
-            </LogoWrapper>
-        </Wrapper>
+        <Container className={"navbar-mobile"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
+                   isConstructor={isConstructor}>
+            <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor}>
+                <IconWrapper>
+                    <Icon icon={BurgerIcon} color={'#ffffff'}/>
+                </IconWrapper>
+                <LogoWrapper mobileLogoAlignment={mobileLogoAlignment}>
+                    <Logo>
+                        <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)}
+                                   crop={logoCropperOptions}/>
+                    </Logo>
+                </LogoWrapper>
+            </Wrapper>
+        </Container>
     );
 };
 
-const Wrapper = styled.div`
+const Container = styled.div`
   z-index: 1001;
   display: flex;
-  width: 100%;
-  padding: 15px 13px 16px 15px;
-  border-radius: 3px;
-  border: solid 1px rgba(164, 198, 225, 0.39);
-  height: ${({height}) => height}px;
-  background-color: ${({navBarRegularColor}) => navBarRegularColor};
-  align-items: center;
+  flex-direction: column;
   position: relative;
   ${({navBarBehavior, stickyOffset, isConstructor}) =>
           navBarBehavior === 'frozen' && !isConstructor &&
@@ -40,6 +38,15 @@ const Wrapper = styled.div`
             position: sticky;
             top: ${stickyOffset}px;
           `};
+`
+
+const Wrapper = styled.div`
+  width: 100%;
+  padding: 15px 13px 16px 15px;
+  border: solid 1px rgba(164, 198, 225, 0.39);
+  height: ${({height}) => height}px;
+  background-color: ${({navBarRegularColor}) => navBarRegularColor};
+  align-items: center;
 `;
 
 const LogoWrapper = styled.div`
