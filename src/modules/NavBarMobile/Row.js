@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 
-const Row = ({children, onClick, mobileTextAlignment, link}) => {
+const Row = ({children, onClick, mobileTextAlignment, link, isDropdown}) => {
+
     return (
-        <Wrapper onClick={onClick} mobileTextAlignment={mobileTextAlignment} data-link={link}>
+        <Wrapper onClick={onClick} mobileTextAlignment={mobileTextAlignment} data-link={link} data-isdropdown={isDropdown}>
             {children}
         </Wrapper>
     );
@@ -20,6 +21,7 @@ Row.propTypes = {
     children: PropTypes.any,
     onClick: PropTypes.func,
     link: PropTypes.string,
+    isDropdown: PropTypes.bool,
 };
 
 export default Row;

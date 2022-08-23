@@ -33,7 +33,7 @@ const NavBarPage = memo(
 
         return (
             <Wrapper>
-                <Row data-isdropdown={isDropdown} link={!isDropdown ? link : undefined} onClick={onClick} mobileTextAlignment={mobileTextAlignment}>
+                <Row isDropdown={isDropdown} link={!isDropdown ? link : undefined} onClick={onClick} mobileTextAlignment={mobileTextAlignment}>
                     <PageWrapper
                         navBarTextHoverColor={navBarTextHoverColor}
                         navBarTextClickedColor={navBarTextClickedColor}
