@@ -58,11 +58,11 @@ const NavBarPage = memo(
         >
           {title}{' '}
           {isDropdown && (
-            <IconWrapper>
+            <IconWrapper data-arrow={true}>
               {open ? (
-                <Icon icon={ArrowIcon} rotate={-90} color={'#ffffff'} />
+                <Icon icon={ArrowIcon} rotate={isStatic ? 90 : -90} color={'#ffffff'} />
               ) : (
-                <Icon icon={ArrowIcon} rotate={180} color={'#ffffff'} />
+                <Icon icon={ArrowIcon} rotate={90} color={'#ffffff'} />
               )}
             </IconWrapper>
           )}
@@ -131,6 +131,7 @@ const DropdownWrapper = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
+  z-index: 1;
 `;
 
 const IconWrapper = styled.div``;
