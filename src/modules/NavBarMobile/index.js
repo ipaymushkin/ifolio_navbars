@@ -23,6 +23,9 @@ const NavBarMobile = ({config, stickyOffset = 0, isConstructor = false}) => {
                     </Logo>
                 </LogoWrapper>
             </Wrapper>
+            <ListWrapper offsetTop={stickyOffset + mobileHeight}>
+                wrapper
+            </ListWrapper>
         </Container>
     );
 };
@@ -38,9 +41,17 @@ const Container = styled.div`
             position: sticky;
             top: ${stickyOffset}px;
           `};
+`;
+
+const ListWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: ${({offsetTop}) => offsetTop}px;
 `
 
 const Wrapper = styled.div`
+  display: flex;
   width: 100%;
   padding: 15px 13px 16px 15px;
   border: solid 1px rgba(164, 198, 225, 0.39);
