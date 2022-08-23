@@ -58,9 +58,6 @@ const NavBarPage = memo(
                                 onClick={() => {
                                     if (el.link && !disabledRedirect) {
                                         openLinkInNewTab(el.link);
-                                        setOpen(false);
-                                    } else {
-                                        setOpen(false);
                                     }
                                 }}
                                 link={el.link}
