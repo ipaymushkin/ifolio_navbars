@@ -5,6 +5,7 @@ import ArrowIcon from '../../icons/ArrowIcon.js';
 import {openLinkInNewTab} from '../../utils/openLinkInNewTab.js';
 import Row from "./Row";
 import {IconWrapper, PageWrapper} from "../styled";
+import styled from "styled-components";
 
 const NavBarPage = memo(
     ({
@@ -31,12 +32,11 @@ const NavBarPage = memo(
         }, [disabledListClick, disabledRedirect, isDropdown, link]);
 
         return (
-            <>
-                <Row link={!isDropdown ? link : undefined} onClick={onClick} mobileTextAlignment={mobileTextAlignment}>
+            <Wrapper>
+                <Row data-isdropdown={isDropdown} link={!isDropdown ? link : undefined} onClick={onClick} mobileTextAlignment={mobileTextAlignment}>
                     <PageWrapper
                         navBarTextHoverColor={navBarTextHoverColor}
                         navBarTextClickedColor={navBarTextClickedColor}
-                        data-isdropdown={isDropdown}
                     >
                         {title}{' '}
                         {isDropdown && (
@@ -51,7 +51,7 @@ const NavBarPage = memo(
                     </PageWrapper>
                 </Row>
                 {open && isDropdown && (
-                    <>
+                    <Container data-mobile-dropdown-list={true}>
                         {children.map((el) => (
                             <Row
                                 key={el.id}
@@ -71,12 +71,22 @@ const NavBarPage = memo(
                                 </PageWrapper>
                             </Row>
                         ))}
-                    </>
+                    </Container>
                 )}
-            </>
+            </Wrapper>
         )
     }
 );
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 NavBarPage.propTypes = {
     link: PropTypes.string,
