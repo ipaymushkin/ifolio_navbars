@@ -66,7 +66,7 @@ const NavBarMobile = ({
                     </Logo>
                 </LogoWrapper>
             </Wrapper>
-            <ListWrapper offsetTop={stickyOffset + mobileHeight} isConstructor={isConstructor} open={open}
+            <ListWrapper stickyOffset={stickyOffset} offsetTop={stickyOffset + mobileHeight} isConstructor={isConstructor} open={open}
                          navBarRegularColor={navBarRegularColor}
                          mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
                          navBarTextBold={navBarTextBold}
@@ -134,7 +134,7 @@ const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: ${({offsetTop}) => offsetTop}px;
+  top: ${({stickyOffset}) => stickyOffset}px;
   width: 100%;
   height: ${({isConstructor}) => isConstructor ? 'auto' : 0};
   transition: height 0.5s ease;
