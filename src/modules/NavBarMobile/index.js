@@ -62,7 +62,7 @@ const NavBarMobile = ({
     return (
         <Container className={"navbar-mobile"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
                    isConstructor={isConstructor}>
-            <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor}>
+            <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor} data-mobile-header={true}>
                 <IconWrapper onClick={onClick} data-mobile-menu-button={true}>
                     <Icon icon={BurgerIcon} color={'#ffffff'}/>
                 </IconWrapper>
