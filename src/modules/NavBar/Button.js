@@ -64,7 +64,7 @@ const ButtonWrapper = styled.div`
                buttonSettingsVerticalPadding,
                navBarTextFontSize,
                buttonSettingsBorderWidth
-             }) => navBarTextFontSize + ((buttonSettingsVerticalPadding || 0) * 2) + ((buttonSettingsBorderWidth || 0) * 2)};
+             }) => navBarTextFontSize + ((buttonSettingsVerticalPadding || 0) * 2) + ((buttonSettingsBorderWidth || 0) * 2)}px;
 
   &:hover {
     border: ${({buttonSettingsBorderWidth}) => buttonSettingsBorderWidth}px solid ${({buttonSettingsHoverClickedBorder}) => buttonSettingsHoverClickedBorder};
