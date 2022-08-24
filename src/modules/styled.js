@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ButtonWrapper = styled.div`
-  margin: 10px 0;
   line-height: normal;
   cursor: pointer;
   display: flex;
