@@ -217,6 +217,7 @@ const Container = styled.div`
   text-decoration: ${({navBarTextUnderline}) => (navBarTextUnderline ? 'underline' : 'none')};
   color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
   height: 100%;
+  align-items: center;
 
   > div {
     margin-right: ${({navBarTextSpacing}) => navBarTextSpacing}px;
