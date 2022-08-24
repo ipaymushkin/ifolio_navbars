@@ -106,6 +106,7 @@ const NavBar = ({
                                                 buttonSettingsTextColorRegular={buttonSettingsTextColorRegular}
                                                 buttonSettingsTextColorHover={buttonSettingsTextColorHover}
                                                 buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
+                                                navBarTextFontSize={navBarTextFontSize}
                                             />
                                         );
                                     } else if (el.type === 'page') {
