@@ -19,6 +19,8 @@ const NavBar = ({
     const {
         height,
         navBarRegularColor,
+        navBarHoverColor,
+        navBarClickedColor,
         logoAlignment,
         logoCropperOptions,
         logoSrc,
@@ -86,7 +88,8 @@ const NavBar = ({
                     logoAlignment={logoAlignment}
                 >
                     {
-                        structure?.length === 0 && isPreview ? <PreviewText>Navigation will preview here once created</PreviewText> :
+                        structure?.length === 0 && isPreview ?
+                            <PreviewText>Navigation will preview here once created</PreviewText> :
                             <>
                                 {structure?.map((el) => {
                                     let component = null;
@@ -132,6 +135,8 @@ const NavBar = ({
                                                 dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
                                                 dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
                                                 isStatic={isStatic}
+                                                navBarHoverColor={navBarHoverColor}
+                                                navBarClickedColor={navBarClickedColor}
                                             />
                                         );
                                     }
