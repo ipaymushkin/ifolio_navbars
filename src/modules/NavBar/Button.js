@@ -22,7 +22,7 @@ const NavBarButton = memo(
          navBarTextFontSize
      }) => {
 
-        const link = linkProps?.link;
+        const link = linkProps?.value;
 
         const onClick = useCallback(() => {
             if (link && !disabledRedirect) {

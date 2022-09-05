@@ -35,7 +35,7 @@ const NavBarPage = memo(
          navBarClickedColor,
      }) => {
         const [open, setOpen] = useState(isStatic);
-        const link = linkProps?.link;
+        const link = linkProps?.value;
 
         const ref = useOutsideClick(() => {
             setOpen(false);
