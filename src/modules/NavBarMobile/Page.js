@@ -19,7 +19,7 @@ const NavBarPage = memo(
          mobileTextAlignment,
          isStatic
      }) => {
-        const {link} = linkProps;
+        const link = linkProps?.link;
         const [open, setOpen] = useState(isStatic);
 
         const isDropdown = children.length > 0;
@@ -61,7 +61,7 @@ const NavBarPage = memo(
                                         openLinkInNewTab(el.link.value);
                                     }
                                 }}
-                                link={el.link}
+                                link={el.link?.value}
                                 mobileTextAlignment={mobileTextAlignment}
                             >
                                 <PageWrapper
