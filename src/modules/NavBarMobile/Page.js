@@ -43,9 +43,9 @@ const NavBarPage = memo(
                         {isDropdown && (
                             <IconWrapper data-arrow={true}>
                                 {open ? (
-                                    <Icon icon={ArrowIcon} rotate={isStatic ? 90 : -90} color={'#ffffff'}/>
+                                    <Icon icon={ArrowIcon} rotate={isStatic ? -90 : 90} color={'#ffffff'}/>
                                 ) : (
-                                    <Icon icon={ArrowIcon} rotate={90} color={'#ffffff'}/>
+                                    <Icon icon={ArrowIcon} rotate={-90} color={'#ffffff'}/>
                                 )}
                             </IconWrapper>
                         )}
