@@ -11,7 +11,7 @@ const NavBarPage = memo(
     ({
          disabledRedirect,
          disabledListClick,
-         link,
+         link: linkProps,
          title,
          navBarTextHoverColor,
          navBarTextClickedColor,
@@ -19,6 +19,7 @@ const NavBarPage = memo(
          mobileTextAlignment,
          isStatic
      }) => {
+        const {link} = linkProps;
         const [open, setOpen] = useState(isStatic);
 
         const isDropdown = children.length > 0;
@@ -56,8 +57,8 @@ const NavBarPage = memo(
                             <Row
                                 key={el.id}
                                 onClick={() => {
-                                    if (el.link && !disabledRedirect) {
-                                        openLinkInNewTab(el.link);
+                                    if (el.link?.value && !disabledRedirect) {
+                                        openLinkInNewTab(el.link.value);
                                     }
                                 }}
                                 link={el.link}

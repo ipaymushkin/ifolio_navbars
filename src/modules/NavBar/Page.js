@@ -11,7 +11,7 @@ const NavBarPage = memo(
     ({
          disabledRedirect,
          disabledListClick,
-         link,
+         link: linkProps,
          title,
          navBarTextHoverColor,
          navBarTextClickedColor,
@@ -35,6 +35,7 @@ const NavBarPage = memo(
          navBarClickedColor,
      }) => {
         const [open, setOpen] = useState(isStatic);
+        const {link} = linkProps;
 
         const ref = useOutsideClick(() => {
             setOpen(false);
@@ -90,8 +91,8 @@ const NavBarPage = memo(
                                 dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
                                 dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
                                 onClick={() => {
-                                    if (el.link && !disabledRedirect) {
-                                        openLinkInNewTab(el.link);
+                                    if (el.link?.value && !disabledRedirect) {
+                                        openLinkInNewTab(el.link.value);
                                         setOpen(false);
                                     } else {
                                         setOpen(false);

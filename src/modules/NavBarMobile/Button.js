@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 const NavBarButton = memo(
     ({
-         link,
+         link: linkProps,
          disabledRedirect,
          title,
          buttonSettingsRoundCorners,
@@ -22,6 +22,7 @@ const NavBarButton = memo(
          buttonSettingsTextColorClicked,
          mobileTextAlignment
      }) => {
+        const {link} = linkProps;
         const onClick = useCallback(() => {
             if (link && !disabledRedirect) {
                 openLinkInNewTab(link);
