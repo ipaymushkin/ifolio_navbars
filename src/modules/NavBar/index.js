@@ -7,9 +7,9 @@ import NavBarPage from './Page.js';
 import NavBarButton from './Button.js';
 import CropImage from '../../components/CropImage/index.js';
 
-const LogoElement = ({logoSrc, logoCropperOptions, hidden}) => {
+const LogoElement = ({logoSrc, logoCropperOptions, hideElement}) => {
     return (
-        <Logo hidden={hidden}>
+        <Logo hideElement={hideElement}>
             <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)} crop={logoCropperOptions}/>
         </Logo>
     )
@@ -75,7 +75,7 @@ const NavBar = ({
         <Wrapper height={height} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior}
                  stickyOffset={stickyOffset} className={"navbar-desktop"}>
             <Menu height={height}>
-                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hidden={hideLogo || logoAlignment !== 'left'} />
+                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'left'} />
                 <Container
                     navBarTextAlignment={navBarTextAlignment}
                     navBarTextFontSize={navBarTextFontSize}
@@ -145,7 +145,7 @@ const NavBar = ({
                             </>
                     }
                 </Container>
-                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hidden={hideLogo || logoAlignment !== 'right'} />
+                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'right'} />
             </Menu>
         </Wrapper>
     );
@@ -194,7 +194,7 @@ const Wrapper = styled.div`
 const Logo = styled.div`
   width: ${logoImageWidth}px;
   height: ${logoImageHeight}px;
-  opacity: ${({hidden}) => hidden ? 0 : 1};
+  opacity: ${({hideElement}) => hideElement ? 0 : 1};
 `;
 
 const Menu = styled.div`
