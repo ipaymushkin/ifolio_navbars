@@ -7,6 +7,14 @@ import NavBarPage from './Page.js';
 import NavBarButton from './Button.js';
 import CropImage from '../../components/CropImage/index.js';
 
+const LogoElement = ({logoSrc, logoCropperOptions, hidden}) => {
+    return (
+        <Logo hidden={hidden}>
+            <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)} crop={logoCropperOptions}/>
+        </Logo>
+    )
+}
+
 const NavBar = ({
                     config,
                     disabledRedirect = false,
@@ -63,19 +71,11 @@ const NavBar = ({
         dropdownSettingsVerticalPadding
     } = config;
 
-    let LogoComponent = null;
-    if (!hideLogo) {
-        LogoComponent = (
-            <Logo>
-                <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)} crop={logoCropperOptions}/>
-            </Logo>
-        );
-    }
     return (
         <Wrapper height={height} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior}
                  stickyOffset={stickyOffset} className={"navbar-desktop"}>
             <Menu height={height}>
-                {logoAlignment === 'left' && LogoComponent}
+                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hidden={hideLogo || logoAlignment !== 'left'} />
                 <Container
                     navBarTextAlignment={navBarTextAlignment}
                     navBarTextFontSize={navBarTextFontSize}
@@ -85,7 +85,7 @@ const NavBar = ({
                     navBarTextUnderline={navBarTextUnderline}
                     navBarTextRegularColor={navBarTextRegularColor}
                     navBarTextSpacing={navBarTextSpacing}
-                    logoAlignment={logoAlignment}
+                    // logoAlignment={logoAlignment}
                 >
                     {
                         structure?.length === 0 && isPreview ?
@@ -145,7 +145,7 @@ const NavBar = ({
                             </>
                     }
                 </Container>
-                {logoAlignment === 'right' && LogoComponent}
+                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hidden={hideLogo || logoAlignment !== 'right'} />
             </Menu>
         </Wrapper>
     );
@@ -194,6 +194,7 @@ const Wrapper = styled.div`
 const Logo = styled.div`
   width: ${logoImageWidth}px;
   height: ${logoImageHeight}px;
+  visibility: ${({hidden}) => hidden ? "hidden" : "visible"};
 `;
 
 const Menu = styled.div`
@@ -205,15 +206,19 @@ const Menu = styled.div`
   height: ${({height}) => height}px;
 `;
 
-const Container = styled.div`
-  display: flex;
-  flex: 1 1 auto;
+/*
   margin: ${({logoAlignment}) => {
     if (logoAlignment === 'right') {
       return '0 24px 0 0';
     }
     return '0 0 0 24px';
   }};
+ */
+
+const Container = styled.div`
+  display: flex;
+  flex: 1 1 auto;
+  margin: 0 24px;
   justify-content: ${({navBarTextAlignment}) => navBarTextAlignment};
   font-size: ${({navBarTextFontSize}) => navBarTextFontSize}px;
   font-family: ${({navBarTextFontFamily}) => navBarTextFontFamily};
