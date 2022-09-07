@@ -194,7 +194,7 @@ const Wrapper = styled.div`
 const Logo = styled.div`
   width: ${logoImageWidth}px;
   height: ${logoImageHeight}px;
-  visibility: ${({hidden}) => hidden ? "hidden" : "visible"};
+  opacity: ${({hidden}) => hidden ? 0 : 1};
 `;
 
 const Menu = styled.div`
