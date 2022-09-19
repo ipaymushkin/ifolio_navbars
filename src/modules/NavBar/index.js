@@ -228,6 +228,8 @@ const Container = styled.div`
   color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
   height: 100%;
   align-items: center;
+  width: calc(100% - 250px);
+  overflow-x: auto;
 
   > div {
     margin-right: ${({navBarTextSpacing}) => navBarTextSpacing}px;
