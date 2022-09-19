@@ -169,6 +169,7 @@ const Wrapper = styled.div`
   height: ${({height}) => height}px;
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
   align-items: center;
+  overflow: hidden;
 `;
 
 const LogoWrapper = styled.div`
