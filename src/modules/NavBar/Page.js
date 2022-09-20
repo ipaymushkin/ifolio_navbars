@@ -32,7 +32,7 @@ const DropDown = memo((props) => {
         parentRef,
     } = props;
 
-    if (!window?.document) return null;
+    if (!document) return null;
 
     let left = 0, top = 0;
     if (parentRef) {
