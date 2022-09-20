@@ -45,12 +45,11 @@ const DropDown = memo((props) => {
         top = navbarBox.top + navbarBox.height;
     }
 
-    const component = <DropdownWrapper data-list={true} className={"navbar-list"} left={left} top={top}>
+    const component = <DropdownWrapper data-list={true} className={"navbar-list"} left={left} top={top} dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}>
         {childs.map((el) => (
             <DropdownElement
                 key={el.id}
                 dropdownSettingsInactiveFill={dropdownSettingsInactiveFill}
-                dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}
                 dropdownSettingsHoverClickedFill={dropdownSettingsHoverClickedFill}
                 dropdownSettingsHoverClickedBorder={dropdownSettingsHoverClickedBorder}
                 dropdownSettingsTextColorRegular={dropdownSettingsTextColorRegular}
@@ -199,6 +198,15 @@ const DropdownWrapper = styled.div`
   left: ${({left}) => left}px;
   top: ${({top}) => top}px;
   z-index: 2;
+  
+  &:nth-child(1) {
+    border-right: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
+    border-left: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
+    border-bottom: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
+  }
+  &:first-child {
+    border-top: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
+  }
 `;
 
 const DropdownElement = styled.div`
@@ -207,7 +215,6 @@ const DropdownElement = styled.div`
   white-space: nowrap;
   cursor: pointer;
   background: ${({dropdownSettingsInactiveFill}) => dropdownSettingsInactiveFill};
-  border: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
   color: ${({dropdownSettingsTextColorRegular}) => dropdownSettingsTextColorRegular};
   font-size: ${({dropdownSettingsTextFontSize}) => dropdownSettingsTextFontSize}px;
   font-family: ${({dropdownSettingsTextFontFamily}) => dropdownSettingsTextFontFamily};
