@@ -77,6 +77,7 @@ const NavBar = ({
             <Menu height={height}>
                 <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'left'} />
                 <Container
+                    data-navbarcontainer={true}
                     navBarTextAlignment={navBarTextAlignment}
                     navBarTextFontSize={navBarTextFontSize}
                     navBarTextFontFamily={navBarTextFontFamily}
@@ -230,6 +231,7 @@ const Container = styled.div`
   align-items: center;
   width: calc(100% - 250px);
   overflow-x: auto;
+  overflow-y: hidden;
 
   > div {
     margin-right: ${({navBarTextSpacing}) => navBarTextSpacing}px;
