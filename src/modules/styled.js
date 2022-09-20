@@ -8,6 +8,7 @@ export const PageWrapper = styled.div`
   justify-content: center;
   cursor: pointer;
   height: 100%;
+  word-break: break-word;
 
   &:hover {
     color: ${({navBarTextHoverColor}) => navBarTextHoverColor};
