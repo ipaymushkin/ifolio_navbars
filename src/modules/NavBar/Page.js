@@ -199,7 +199,7 @@ const DropdownWrapper = styled.div`
   top: ${({top}) => top}px;
   z-index: 2;
   
-  &:nth-child(1) {
+  &:nth-child(n + 1) {
     border-right: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
     border-left: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
     border-bottom: 2px solid ${({dropdownSettingsInactiveBorder}) => dropdownSettingsInactiveBorder};
