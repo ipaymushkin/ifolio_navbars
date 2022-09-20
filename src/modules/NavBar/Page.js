@@ -34,10 +34,8 @@ const DropDown = memo((props) => {
 
     const isClient = typeof window === "object";
 
-    if (!isClient) return null;
-
     let left = 0, top = 0;
-    if (parentRef) {
+    if (isClient && parentRef) {
         left = parentRef.getBoundingClientRect().left;
         const navbarContainer = parentRef.closest("[data-navbarcontainer]");
         const navbar = parentRef.closest('.navbar-desktop');
