@@ -28,7 +28,11 @@ const DropDown = memo((props) => {
         dropdownSettingsHorizontalPadding,
         dropdownSettingsVerticalPadding,
         setOpen,
+        rootId,
+        parentRef,
     } = props;
+
+    console.log('parentRef', parentRef);
 
     const component = <DropdownWrapper data-list={true} className={"navbar-list"}>
         {childs.map((el) => (
@@ -63,7 +67,7 @@ const DropDown = memo((props) => {
         ))}
     </DropdownWrapper>
 
-    return ReactDOM.createPortal(component, document.getElementById("root"));
+    return ReactDOM.createPortal(component, document.getElementById(rootId));
 })
 
 const NavBarPage = memo(
@@ -92,6 +96,7 @@ const NavBarPage = memo(
          isStatic,
          navBarHoverColor,
          navBarClickedColor,
+         rootId,
      }) => {
         const [open, setOpen] = useState(isStatic);
         const link = linkProps?.value;
@@ -149,6 +154,8 @@ const NavBarPage = memo(
                         childs={children}
                         setOpen={setOpen}
                         disabledRedirect={disabledRedirect}
+                        rootId={rootId}
+                        parentRef={ref}
                     />
                 }
             </Container>
@@ -231,6 +238,7 @@ NavBarPage.propTypes = {
     dropdownSettingsVerticalPadding: PropTypes.number,
     navBarHoverColor: PropTypes.string,
     navBarClickedColor: PropTypes.string,
+    rootId: PropTypes.string,
 };
 
 export default NavBarPage;

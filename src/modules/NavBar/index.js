@@ -22,7 +22,8 @@ const NavBar = ({
                     stickyOffset = 0,
                     isStatic = false,
                     hideLogo = false,
-                    isPreview = false
+                    isPreview = false,
+                    rootId = "root"
                 }) => {
     const {
         height,
@@ -138,6 +139,7 @@ const NavBar = ({
                                                 isStatic={isStatic}
                                                 navBarHoverColor={navBarHoverColor}
                                                 navBarClickedColor={navBarClickedColor}
+                                                rootId={rootId}
                                             />
                                         );
                                     }
