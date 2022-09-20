@@ -81,7 +81,10 @@ const DropDown = memo((props) => {
         ))}
     </DropdownWrapper>
 
-    return ReactDOM.createPortal(component, document.getElementById(rootId));
+    if (isClient) {
+        return ReactDOM.createPortal(component, document.getElementById(rootId));
+    }
+    return component;
 })
 
 const NavBarPage = memo(
