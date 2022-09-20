@@ -145,7 +145,7 @@ const ListWrapper = styled.div`
   position: absolute;
   top: ${({mobileHeight}) => mobileHeight}px;
   width: 100%;
-  height: ${({isConstructor}) => isConstructor ? '350px' : 0};
+  height: ${({isConstructor}) => isConstructor ? '100%' : 0};
   transition: height 0.5s ease;
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
   overflow-x: hidden;
