@@ -32,8 +32,6 @@ const DropDown = memo((props) => {
         parentRef,
     } = props;
 
-    console.log('parentRef', parentRef);
-
     let left = 0, top = 0;
     if (parentRef) {
         left = parentRef.getBoundingClientRect().left;
@@ -200,7 +198,7 @@ const DropdownWrapper = styled.div`
   position: absolute;
   left: ${({left}) => left}px;
   top: ${({top}) => top}px;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const DropdownElement = styled.div`
