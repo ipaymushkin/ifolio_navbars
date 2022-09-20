@@ -34,7 +34,20 @@ const DropDown = memo((props) => {
 
     console.log('parentRef', parentRef);
 
-    const component = <DropdownWrapper data-list={true} className={"navbar-list"}>
+    let left = 0, top = 0;
+    if (parentRef) {
+        left = parentRef.getBoundingClientRect().left;
+        const navbarContainer = document.querySelector("[data-navbarcontainer]");
+        const navbar = document.querySelector('.navbar-desktop');
+        if (navbarContainer) {
+            const containerLeft = navbarContainer.getBoundingClientRect().left;
+            if (left < containerLeft) left = containerLeft;
+        }
+        const navbarBox =navbar.getBoundingClientRect();
+        top = navbarBox.top + navbarBox.height;
+    }
+
+    const component = <DropdownWrapper data-list={true} className={"navbar-list"} left={left} top={top}>
         {childs.map((el) => (
             <DropdownElement
                 key={el.id}
@@ -185,8 +198,8 @@ const DropdownWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 100%;
-  left: 0;
+  left: ${({left}) => left}px;
+  top: ${({top}) => top}px;
   z-index: 1;
 `;
 
