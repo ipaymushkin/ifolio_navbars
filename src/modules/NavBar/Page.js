@@ -45,7 +45,7 @@ const DropDown = memo((props) => {
         }
         if (navbar) {
             const navbarBox = navbar.getBoundingClientRect();
-            top = navbarBox.top + navbarBox.height;
+            top = navbarBox.top + navbarBox.height + window.scrollY;
         }
     }
 

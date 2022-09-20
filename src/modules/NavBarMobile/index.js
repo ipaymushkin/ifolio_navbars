@@ -146,6 +146,11 @@ const ListWrapper = styled.div`
   top: ${({mobileHeight}) => mobileHeight}px;
   width: 100%;
   height: ${({isConstructor}) => isConstructor ? '100%' : 0};
+  ${({isConstructor}) =>
+          !isConstructor &&
+          css`
+            max-height: 350px;
+          `};
   transition: height 0.5s ease;
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
   overflow-x: hidden;
