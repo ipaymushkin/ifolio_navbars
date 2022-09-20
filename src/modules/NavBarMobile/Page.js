@@ -4,7 +4,7 @@ import {Icon} from '../../components/Icon';
 import ArrowIcon from '../../icons/ArrowIcon.js';
 import {openLinkInNewTab} from '../../utils/openLinkInNewTab.js';
 import Row from "./Row";
-import {IconWrapper, PageWrapper} from "../styled";
+import {IconWrapper, PageWrapperMobile} from "../styled";
 import styled from "styled-components";
 
 const NavBarPage = memo(
@@ -35,7 +35,7 @@ const NavBarPage = memo(
         return (
             <Wrapper>
                 <Row isDropdown={isDropdown} link={!isDropdown ? link : undefined} onClick={onClick} mobileTextAlignment={mobileTextAlignment}>
-                    <PageWrapper
+                    <PageWrapperMobile
                         navBarTextHoverColor={navBarTextHoverColor}
                         navBarTextClickedColor={navBarTextClickedColor}
                     >
@@ -49,7 +49,7 @@ const NavBarPage = memo(
                                 )}
                             </IconWrapper>
                         )}
-                    </PageWrapper>
+                    </PageWrapperMobile>
                 </Row>
                 {open && isDropdown && (
                     <Container data-mobile-dropdown-list={true}>
@@ -64,12 +64,12 @@ const NavBarPage = memo(
                                 link={el.link?.value}
                                 mobileTextAlignment={mobileTextAlignment}
                             >
-                                <PageWrapper
+                                <PageWrapperMobile
                                     navBarTextHoverColor={navBarTextHoverColor}
                                     navBarTextClickedColor={navBarTextClickedColor}
                                 >
                                     {el.title}
-                                </PageWrapper>
+                                </PageWrapperMobile>
                             </Row>
                         ))}
                     </Container>
