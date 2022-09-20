@@ -32,7 +32,7 @@ const DropDown = memo((props) => {
         parentRef,
     } = props;
 
-    console.log('parentRef', parentRef);
+    console.log('parentRef', parentRef.current);
 
     const component = <DropdownWrapper data-list={true} className={"navbar-list"}>
         {childs.map((el) => (
