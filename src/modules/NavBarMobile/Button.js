@@ -51,6 +51,7 @@ const NavBarButton = memo(
 );
 
 const ButtonWrapper = styled.div`
+  word-break: break-word;
   line-height: normal;
   cursor: pointer;
   display: flex;
