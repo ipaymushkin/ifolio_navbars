@@ -1,4 +1,5 @@
 import React, {memo, useCallback, useState} from 'react';
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {useOutsideClick} from '../../hooks/useOutsideClick.js';
@@ -6,6 +7,64 @@ import {Icon} from '../../components/Icon';
 import ArrowIcon from '../../icons/ArrowIcon.js';
 import {openLinkInNewTab} from '../../utils/openLinkInNewTab.js';
 import {IconWrapper, PageWrapper} from "../styled";
+
+const DropDown = memo((props) => {
+
+    const {
+        disabledRedirect,
+        childs,
+        dropdownSettingsInactiveFill,
+        dropdownSettingsInactiveBorder,
+        dropdownSettingsHoverClickedFill,
+        dropdownSettingsHoverClickedBorder,
+        dropdownSettingsTextColorRegular,
+        dropdownSettingsTextColorHover,
+        dropdownSettingsTextColorClicked,
+        dropdownSettingsTextFontFamily,
+        dropdownSettingsTextFontSize,
+        dropdownSettingsTextBold,
+        dropdownSettingsTextUnderline,
+        dropdownSettingsTextItalic,
+        dropdownSettingsHorizontalPadding,
+        dropdownSettingsVerticalPadding,
+        setOpen,
+    } = props;
+
+    const component = <DropdownWrapper data-list={true} className={"navbar-list"}>
+        {childs.map((el) => (
+            <DropdownElement
+                key={el.id}
+                dropdownSettingsInactiveFill={dropdownSettingsInactiveFill}
+                dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}
+                dropdownSettingsHoverClickedFill={dropdownSettingsHoverClickedFill}
+                dropdownSettingsHoverClickedBorder={dropdownSettingsHoverClickedBorder}
+                dropdownSettingsTextColorRegular={dropdownSettingsTextColorRegular}
+                dropdownSettingsTextColorHover={dropdownSettingsTextColorHover}
+                dropdownSettingsTextColorClicked={dropdownSettingsTextColorClicked}
+                dropdownSettingsTextFontFamily={dropdownSettingsTextFontFamily}
+                dropdownSettingsTextFontSize={dropdownSettingsTextFontSize}
+                dropdownSettingsTextBold={dropdownSettingsTextBold}
+                dropdownSettingsTextUnderline={dropdownSettingsTextUnderline}
+                dropdownSettingsTextItalic={dropdownSettingsTextItalic}
+                dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
+                dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
+                onClick={() => {
+                    if (el.link?.value && !disabledRedirect) {
+                        openLinkInNewTab(el.link.value);
+                        setOpen(false);
+                    } else {
+                        setOpen(false);
+                    }
+                }}
+                data-link={el.link?.value}
+            >
+                {el.title}
+            </DropdownElement>
+        ))}
+    </DropdownWrapper>
+
+    return ReactDOM.createPortal(component, document.getElementById("root"));
+})
 
 const NavBarPage = memo(
     ({
@@ -71,40 +130,27 @@ const NavBarPage = memo(
                         </IconWrapper>
                     )}
                 </PageWrapper>
-                {open && isDropdown && (
-                    <DropdownWrapper data-list={true} className={"navbar-list"}>
-                        {children.map((el) => (
-                            <DropdownElement
-                                key={el.id}
-                                dropdownSettingsInactiveFill={dropdownSettingsInactiveFill}
-                                dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}
-                                dropdownSettingsHoverClickedFill={dropdownSettingsHoverClickedFill}
-                                dropdownSettingsHoverClickedBorder={dropdownSettingsHoverClickedBorder}
-                                dropdownSettingsTextColorRegular={dropdownSettingsTextColorRegular}
-                                dropdownSettingsTextColorHover={dropdownSettingsTextColorHover}
-                                dropdownSettingsTextColorClicked={dropdownSettingsTextColorClicked}
-                                dropdownSettingsTextFontFamily={dropdownSettingsTextFontFamily}
-                                dropdownSettingsTextFontSize={dropdownSettingsTextFontSize}
-                                dropdownSettingsTextBold={dropdownSettingsTextBold}
-                                dropdownSettingsTextUnderline={dropdownSettingsTextUnderline}
-                                dropdownSettingsTextItalic={dropdownSettingsTextItalic}
-                                dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
-                                dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
-                                onClick={() => {
-                                    if (el.link?.value && !disabledRedirect) {
-                                        openLinkInNewTab(el.link.value);
-                                        setOpen(false);
-                                    } else {
-                                        setOpen(false);
-                                    }
-                                }}
-                                data-link={el.link?.value}
-                            >
-                                {el.title}
-                            </DropdownElement>
-                        ))}
-                    </DropdownWrapper>
-                )}
+                {open && isDropdown &&
+                    <DropDown
+                        dropdownSettingsInactiveFill={dropdownSettingsInactiveFill}
+                        dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}
+                        dropdownSettingsHoverClickedFill={dropdownSettingsHoverClickedFill}
+                        dropdownSettingsHoverClickedBorder={dropdownSettingsHoverClickedBorder}
+                        dropdownSettingsTextColorRegular={dropdownSettingsTextColorRegular}
+                        dropdownSettingsTextColorHover={dropdownSettingsTextColorHover}
+                        dropdownSettingsTextColorClicked={dropdownSettingsTextColorClicked}
+                        dropdownSettingsTextFontFamily={dropdownSettingsTextFontFamily}
+                        dropdownSettingsTextFontSize={dropdownSettingsTextFontSize}
+                        dropdownSettingsTextBold={dropdownSettingsTextBold}
+                        dropdownSettingsTextUnderline={dropdownSettingsTextUnderline}
+                        dropdownSettingsTextItalic={dropdownSettingsTextItalic}
+                        dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
+                        dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
+                        childs={children}
+                        setOpen={setOpen}
+                        disabledRedirect={disabledRedirect}
+                    />
+                }
             </Container>
         );
     }
@@ -113,7 +159,7 @@ const NavBarPage = memo(
 const Container = styled.div`
   position: relative;
   height: 100%;
-  
+
   &:hover {
     background: ${({navBarHoverColor}) => navBarHoverColor};
   }
