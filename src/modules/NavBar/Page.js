@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useState} from 'react';
+import React, {memo, useCallback, useEffect, useState} from 'react';
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -32,7 +32,7 @@ const DropDown = memo((props) => {
         parentRef,
     } = props;
 
-    console.log('parentRef', parentRef.current);
+    console.log('parentRef', parentRef);
 
     const component = <DropdownWrapper data-list={true} className={"navbar-list"}>
         {childs.map((el) => (
@@ -105,6 +105,11 @@ const NavBarPage = memo(
             setOpen(false);
         });
 
+        const [containerRef, setContainerRef] = useState(null);
+        useEffect(() => {
+            setContainerRef(ref.current);
+        }, [])
+
         const isDropdown = children.length > 0;
 
         const onClick = useCallback(() => {
@@ -155,7 +160,7 @@ const NavBarPage = memo(
                         setOpen={setOpen}
                         disabledRedirect={disabledRedirect}
                         rootId={rootId}
-                        parentRef={ref}
+                        parentRef={containerRef}
                     />
                 }
             </Container>
