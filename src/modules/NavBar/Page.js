@@ -137,6 +137,16 @@ const NavBarPage = memo(
             }
         }, [disabledListClick, disabledRedirect, isDropdown, link]);
 
+        useEffect(() => {
+            const handleScroll = () => {
+                setOpen(false)
+            }
+            document.body.addEventListener("scroll", handleScroll);
+            return () => {
+                document.body.removeEventListener("scroll", handleScroll);
+            }
+        }, [])
+
         return (
             <Container ref={ref} navBarHoverColor={navBarHoverColor} navBarClickedColor={navBarClickedColor}>
                 <PageWrapperDesktop
