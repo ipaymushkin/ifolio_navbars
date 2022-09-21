@@ -6,7 +6,7 @@ import {useOutsideClick} from '../../hooks/useOutsideClick.js';
 import {Icon} from '../../components/Icon';
 import ArrowIcon from '../../icons/ArrowIcon.js';
 import {openLinkInNewTab} from '../../utils/openLinkInNewTab.js';
-import {IconWrapper, PageWrapper} from "../styled";
+import {IconWrapper, PageWrapperDesktop} from "../styled";
 
 const DropDown = memo((props) => {
 
@@ -139,7 +139,7 @@ const NavBarPage = memo(
 
         return (
             <Container ref={ref} navBarHoverColor={navBarHoverColor} navBarClickedColor={navBarClickedColor}>
-                <PageWrapper
+                <PageWrapperDesktop
                     navBarTextHoverColor={navBarTextHoverColor}
                     navBarTextClickedColor={navBarTextClickedColor}
                     onClick={onClick}
@@ -156,7 +156,7 @@ const NavBarPage = memo(
                             )}
                         </IconWrapper>
                     )}
-                </PageWrapper>
+                </PageWrapperDesktop>
                 {open && isDropdown &&
                     <DropDown
                         dropdownSettingsInactiveFill={dropdownSettingsInactiveFill}

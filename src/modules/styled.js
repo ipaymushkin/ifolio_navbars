@@ -18,6 +18,10 @@ export const PageWrapper = styled.div`
   }
 `;
 
+export const PageWrapperDesktop = styled(PageWrapper)`
+    padding: 0 10px;
+`
+
 export const PageWrapperMobile = styled(PageWrapper)`
     word-break: break-word;
 `;
