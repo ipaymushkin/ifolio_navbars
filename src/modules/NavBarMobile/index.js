@@ -147,7 +147,7 @@ const ListWrapper = styled.div`
   width: 100%;
   height: ${({isConstructor}) => isConstructor ? 'auto' : 0};
   ${({isConstructor}) =>
-          !isConstructor &&
+          isConstructor &&
           css`
             max-height: 350px;
           `};
