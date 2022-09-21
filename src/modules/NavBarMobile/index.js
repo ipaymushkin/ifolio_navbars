@@ -145,7 +145,7 @@ const ListWrapper = styled.div`
   position: absolute;
   top: ${({mobileHeight}) => mobileHeight}px;
   width: 100%;
-  height: ${({isConstructor}) => isConstructor ? '100%' : 0};
+  height: ${({isConstructor}) => isConstructor ? 'auto' : 0};
   ${({isConstructor}) =>
           !isConstructor &&
           css`
