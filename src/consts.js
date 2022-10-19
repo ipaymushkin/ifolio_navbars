@@ -1,2 +1,2 @@
-export const logoImageWidth = 100;
-export const logoImageHeight = 50;
+export const logoImageWidth = 250;
+export const logoImageHeight = 80;

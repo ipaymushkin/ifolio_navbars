@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
 const Index = forwardRef(({ height, id, crop, source, alt, ignoreMaxHeight, isTurntable, isHero }, ref) => {
-  const styles = { width: '100%', height: '100%', objectFit: 'cover' };
+  const styles = { width: '100%', height: '100%', objectFit: 'contain' };
   if (!ignoreMaxHeight) {
     styles.maxHeight = '600px';
   }
