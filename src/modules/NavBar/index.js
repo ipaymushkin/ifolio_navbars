@@ -231,7 +231,7 @@ const Container = styled.div`
   color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
   height: 100%;
   align-items: center;
-  width: calc(100% - 250px);
+  width: calc(100% - ${2 * logoImageWidth + 50}px);
   overflow-x: auto;
   overflow-y: hidden;
 
