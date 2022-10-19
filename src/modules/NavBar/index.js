@@ -7,9 +7,9 @@ import NavBarPage from './Page.js';
 import NavBarButton from './Button.js';
 import CropImage from '../../components/CropImage/index.js';
 
-const LogoElement = ({logoSrc, logoCropperOptions, hideElement}) => {
+const LogoElement = ({logoSrc, logoCropperOptions, hideElement, height}) => {
     return (
-        <Logo hideElement={hideElement}>
+        <Logo hideElement={hideElement} height={height}>
             <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)} crop={logoCropperOptions}/>
         </Logo>
     )
@@ -76,7 +76,7 @@ const NavBar = ({
         <Wrapper height={height} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior}
                  stickyOffset={stickyOffset} className={"navbar-desktop"}>
             <Menu height={height}>
-                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'left'} />
+                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'left'} height={height}/>
                 <Container
                     data-navbarcontainer={true}
                     navBarTextAlignment={navBarTextAlignment}
@@ -196,7 +196,7 @@ const Wrapper = styled.div`
 
 const Logo = styled.div`
   width: ${logoImageWidth}px;
-  height: ${logoImageHeight}px;
+  height: ${({height}) => height}px;
   opacity: ${({hideElement}) => hideElement ? 0 : 1};
 `;
 
