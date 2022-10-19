@@ -67,7 +67,7 @@ const NavBarMobile = ({
                     <Icon icon={BurgerIcon} color={'#ffffff'}/>
                 </IconWrapper>
                 <LogoWrapper mobileLogoAlignment={mobileLogoAlignment}>
-                    <Logo>
+                    <Logo height={mobileHeight}>
                         <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)}
                                    crop={logoCropperOptions}/>
                     </Logo>
@@ -177,11 +177,12 @@ const Wrapper = styled.div`
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
   align-items: center;
   overflow: hidden;
+  justify-content: space-between;
 `;
 
 const LogoWrapper = styled.div`
   display: flex;
-  flex: 1 1 auto;
+  width: calc(100% - 50px);
   justify-content: ${({mobileLogoAlignment}) => {
     if (mobileLogoAlignment === 'center') {
       return 'center';
@@ -194,12 +195,12 @@ const LogoWrapper = styled.div`
 
 const Logo = styled.div`
   width: ${logoImageWidth}px;
-  height: ${logoImageHeight}px;
+  height: ${({height}) => height}px;
 `;
 
 const IconWrapper = styled.div`
   display: flex;
-  position: absolute;
+  //position: absolute;
 `;
 
 NavBarMobile.propTypes = {

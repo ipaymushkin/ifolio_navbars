@@ -148,7 +148,7 @@ const NavBar = ({
                             </>
                     }
                 </Container>
-                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'right'} />
+                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'right'}  height={height}/>
             </Menu>
         </Wrapper>
     );
