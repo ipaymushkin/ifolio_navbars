@@ -73,10 +73,12 @@ const NavBar = ({
     } = config;
 
     return (
-        <Wrapper height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview} navBarBehavior={navBarBehavior}
+        <Wrapper height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview}
+                 navBarBehavior={navBarBehavior}
                  stickyOffset={stickyOffset} className={"navbar-desktop"}>
             <Menu height={height}>
-                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'left'} height={height}/>
+                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions}
+                             hideElement={hideLogo || logoAlignment !== 'left'} height={height}/>
                 <Container
                     data-navbarcontainer={true}
                     navBarTextAlignment={navBarTextAlignment}
@@ -148,7 +150,8 @@ const NavBar = ({
                             </>
                     }
                 </Container>
-                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'right'}  height={height}/>
+                <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions}
+                             hideElement={hideLogo || logoAlignment !== 'right'} height={height}/>
             </Menu>
         </Wrapper>
     );
@@ -178,7 +181,10 @@ const PreviewText = styled.div`
 const Wrapper = styled.div`
   display: flex;
   height: ${({height}) => height}px;
-  background-color: ${({navBarRegularColor, isPreview}) => isPreview && navBarRegularColor === 'transparent' ? "black" : navBarRegularColor};
+  background-color: ${({
+                         navBarRegularColor,
+                         isPreview
+                       }) => isPreview && navBarRegularColor === 'transparent' ? "black" : navBarRegularColor};
   padding: 0 50px;
   width: 100%;
   margin: auto;
@@ -186,12 +192,26 @@ const Wrapper = styled.div`
   flex-shrink: 0;
   z-index: 1002;
 
-  ${({navBarBehavior, stickyOffset}) =>
-          navBarBehavior === 'frozen' &&
-          css`
-            position: sticky;
-            top: ${stickyOffset}px;
-          `};
+  ${({navBarBehavior, stickyOffset, navBarRegularColor, isPreview}) => {
+    if (navBarRegularColor === 'transparent' && !isPreview) {
+      if (navBarBehavior === 'frozen') {
+        return css`
+          position: fixed;
+          top: ${stickyOffset}px;
+        `;
+      }
+      return css`
+        position: absolute;
+        top: ${stickyOffset}px;
+      `;
+    } else if (navBarBehavior === 'frozen') {
+      return css`
+        position: sticky;
+        top: ${stickyOffset}px;
+      `;
+    }
+    return "";
+  }}
 `;
 
 const Logo = styled.div`
