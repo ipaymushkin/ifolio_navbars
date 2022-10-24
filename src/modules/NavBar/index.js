@@ -73,7 +73,7 @@ const NavBar = ({
     } = config;
 
     return (
-        <Wrapper height={height} navBarRegularColor={navBarRegularColor} navBarBehavior={navBarBehavior}
+        <Wrapper height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview} navBarBehavior={navBarBehavior}
                  stickyOffset={stickyOffset} className={"navbar-desktop"}>
             <Menu height={height}>
                 <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions} hideElement={hideLogo || logoAlignment !== 'left'} height={height}/>
@@ -178,7 +178,7 @@ const PreviewText = styled.div`
 const Wrapper = styled.div`
   display: flex;
   height: ${({height}) => height}px;
-  background-color: ${({navBarRegularColor}) => navBarRegularColor};
+  background-color: ${({navBarRegularColor, isPreview}) => isPreview && navBarRegularColor === 'transparent' ? "black" : navBarRegularColor};
   padding: 0 50px;
   width: 100%;
   margin: auto;
