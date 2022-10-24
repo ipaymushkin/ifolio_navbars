@@ -22,7 +22,6 @@ const CropImageWrapper = styled.div`
   top: ${({ y }) => y || 0}%;
   width: ${({ width }) => width || 100}%;
   height: ${({ height }) => height || 100}%;
-  text-align: center;
 `;
 
 const CropArea = styled.div`

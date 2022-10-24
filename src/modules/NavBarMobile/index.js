@@ -67,10 +67,12 @@ const NavBarMobile = ({
                     <Icon icon={BurgerIcon} color={'#ffffff'}/>
                 </IconWrapper>
                 <LogoWrapper mobileLogoAlignment={mobileLogoAlignment}>
-                    <Logo height={mobileHeight}>
-                        <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)}
-                                   crop={logoCropperOptions}/>
-                    </Logo>
+                    <LogoInner>
+                        <Logo height={mobileHeight}>
+                            <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)}
+                                       crop={logoCropperOptions}/>
+                        </Logo>
+                    </LogoInner>
                 </LogoWrapper>
             </Wrapper>
             <ListWrapper data-mobile-menu={true} mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight}
@@ -193,8 +195,14 @@ const LogoWrapper = styled.div`
   }};
 `;
 
+const LogoInner = styled.div`
+  display: flex;
+  width: calc(100% - 50px);
+  justify-content: center;
+`
+
 const Logo = styled.div`
-  width: ${logoImageWidth}px;
+  width: 100%;
   height: ${({height}) => height}px;
 `;
 
