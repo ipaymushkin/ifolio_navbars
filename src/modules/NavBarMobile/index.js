@@ -67,7 +67,7 @@ const NavBarMobile = ({
                 ref.current.style.backgroundColor = window.scrollY === 0 && !open ? navBarRegularColor : navBarRegularOnScrollColor;
             }
         }
-        if (open && navBarRegularColor === 'transparent') ref.current.style.backgroundColor = navBarRegularOnScrollColor;
+        if (navBarRegularColor === 'transparent') ref.current.style.backgroundColor = open ? navBarRegularOnScrollColor : navBarRegularColor;
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
