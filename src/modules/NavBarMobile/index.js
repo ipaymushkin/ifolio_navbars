@@ -74,12 +74,19 @@ const NavBarMobile = ({
         }
     }, [open])
 
+    let wrapperColor = navBarRegularColor;
+    if (isConstructor && navBarRegularColor === 'transparent') {
+        wrapperColor = "#000";
+    } else if (open) {
+        wrapperColor = navBarRegularColor === 'transparent' ? navBarRegularOnScrollColor : navBarRegularColor
+    }
+
 
     return (
         <Container className={"navbar-mobile"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
                    isConstructor={isConstructor}>
             <Wrapper height={mobileHeight} ref={ref}
-                     navBarRegularColor={open ? navBarRegularColor === 'transparent' ? navBarRegularOnScrollColor : navBarRegularColor : navBarRegularColor}
+                     navBarRegularColor={wrapperColor}
                      data-mobile-header={true}>
                 <IconWrapper onClick={onClick} data-mobile-menu-button={true}>
                     <Icon icon={BurgerIcon} color={'#ffffff'}/>
@@ -95,7 +102,7 @@ const NavBarMobile = ({
             </Wrapper>
             <ListWrapper data-mobile-menu={true} mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight}
                          isConstructor={isConstructor} open={open}
-                         navBarRegularColor={navBarRegularColor === 'transparent' ? navBarRegularOnScrollColor : navBarRegularColor}
+                         navBarRegularColor={navBarRegularColor === 'transparent' ? isConstructor ? "#000" : navBarRegularOnScrollColor : navBarRegularColor}
                          mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
                          navBarTextBold={navBarTextBold}
                          navBarTextItalic={navBarTextItalic}
@@ -151,43 +158,59 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  
-  ${({navBarBehavior, stickyOffset, isConstructor}) =>
-          navBarBehavior === 'frozen' && !isConstructor &&
-          css`
-            position: sticky;
-            top: ${stickyOffset}px;
-          `};
-`;
 
-const ListWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: ${({mobileHeight}) => mobileHeight}px;
-  width: 100%;
-  height: ${({isConstructor}) => isConstructor ? 'auto' : 0};
-  ${({isConstructor}) =>
-          isConstructor &&
-          css`
-            max-height: 350px;
-          `};
-  transition: height 0.5s ease;
-  background-color: ${({navBarRegularColor}) => navBarRegularColor};
-  overflow-x: hidden;
-  overflow-y: auto;
-  font-size: ${({mobileFontSize}) => mobileFontSize}px;
-  font-family: ${({navBarTextFontFamily}) => navBarTextFontFamily};
-  font-weight: ${({navBarTextBold}) => (navBarTextBold ? 'bold' : 'normal')};
-  font-style: ${({navBarTextItalic}) => (navBarTextItalic ? 'italic' : 'normal')};
-  text-decoration: ${({navBarTextUnderline}) => (navBarTextUnderline ? 'underline' : 'none')};
-  color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
-  ${({offsetTop, open, isConstructor}) =>
-          !isConstructor && open &&
-          css`
-            height: calc(100vh - ${offsetTop}px);
-          `};
-`
+  ${({navBarBehavior, stickyOffset, isConstructor, navBarRegularColor}) => {
+    if (navBarRegularColor === 'transparent' && !isConstructor) {
+      if (navBarBehavior === 'frozen') {
+        return css`
+          position: fixed;
+          top: ${stickyOffset}px;
+        `;
+      }
+      return css`
+        position: absolute;
+        top: ${stickyOffset}px;
+      `;
+    } else if (navBarBehavior === 'frozen' && !isConstructor) {
+      return css`
+        position: sticky;
+        top: ${stickyOffset}px;
+      `;
+    }
+    return "";
+  }
+  }`;
+
+const ListWrapper = styled.div
+
+    `
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: ${({mobileHeight}) => mobileHeight}px;
+      width: 100%;
+      height: ${({isConstructor}) => isConstructor ? 'auto' : 0};
+      ${({isConstructor}) =>
+              isConstructor &&
+              css`
+                max-height: 350px;
+              `};
+      transition: height 0.5s ease;
+      background-color: ${({navBarRegularColor}) => navBarRegularColor};
+      overflow-x: hidden;
+      overflow-y: auto;
+      font-size: ${({mobileFontSize}) => mobileFontSize}px;
+      font-family: ${({navBarTextFontFamily}) => navBarTextFontFamily};
+      font-weight: ${({navBarTextBold}) => (navBarTextBold ? 'bold' : 'normal')};
+      font-style: ${({navBarTextItalic}) => (navBarTextItalic ? 'italic' : 'normal')};
+      text-decoration: ${({navBarTextUnderline}) => (navBarTextUnderline ? 'underline' : 'none')};
+      color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
+      ${({offsetTop, open, isConstructor}) =>
+              !isConstructor && open &&
+              css`
+                height: calc(100vh - ${offsetTop}px);
+              `};
+    `
 
 const Wrapper = styled.div`
   display: flex;
