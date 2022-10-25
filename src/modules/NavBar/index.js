@@ -90,7 +90,7 @@ const NavBar = ({
         <Wrapper ref={ref} height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview}
                  navBarBehavior={navBarBehavior}
                  stickyOffset={stickyOffset} className={"navbar-desktop"} data-color={navBarRegularColor}
-                 data-color-onscroll={navBarRegularOnScrollColor}>
+                 data-coloronscroll={navBarRegularOnScrollColor}>
             <Menu height={height}>
                 <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions}
                              hideElement={hideLogo || logoAlignment !== 'left'} height={height}/>
