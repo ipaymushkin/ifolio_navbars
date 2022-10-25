@@ -67,11 +67,13 @@ const NavBarMobile = ({
                 ref.current.style.backgroundColor = window.scrollY === 0 && !open ? navBarRegularColor : navBarRegularOnScrollColor;
             }
         }
+        if (open && navBarRegularColor === 'transparent') ref.current.style.backgroundColor = navBarRegularOnScrollColor;
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         }
     }, [open])
+
 
     return (
         <Container className={"navbar-mobile"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
@@ -149,7 +151,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: background-color .2s ease-in-out;
+  
   ${({navBarBehavior, stickyOffset, isConstructor}) =>
           navBarBehavior === 'frozen' && !isConstructor &&
           css`
@@ -197,6 +199,7 @@ const Wrapper = styled.div`
   align-items: center;
   overflow: hidden;
   justify-content: space-between;
+  transition: background-color .2s ease-in-out;
 `;
 
 const LogoWrapper = styled.div`
