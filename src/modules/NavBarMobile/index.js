@@ -158,6 +158,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 100%;
 
   ${({navBarBehavior, stickyOffset, isConstructor, navBarRegularColor}) => {
     if (navBarRegularColor === 'transparent' && !isConstructor) {
