@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect, useRef} from 'react';
 import styled, {css} from 'styled-components';
 import PropTypes from 'prop-types';
 import {logoImageHeight, logoImageWidth} from '../../consts.js';
@@ -25,11 +25,13 @@ const NavBar = ({
                     isPreview = false,
                     rootId = "root"
                 }) => {
+    const ref = useRef();
     const {
         height,
         navBarRegularColor,
         navBarHoverColor,
         navBarClickedColor,
+        navBarRegularOnScrollColor,
         logoAlignment,
         logoCropperOptions,
         logoSrc,
@@ -72,10 +74,23 @@ const NavBar = ({
         dropdownSettingsVerticalPadding
     } = config;
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (navBarRegularColor === 'transparent') {
+                ref.current.style.backgroundColor = window.scrollY === 0 ? navBarRegularColor : navBarRegularOnScrollColor;
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, [])
+
     return (
-        <Wrapper height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview}
+        <Wrapper ref={ref} height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview}
                  navBarBehavior={navBarBehavior}
-                 stickyOffset={stickyOffset} className={"navbar-desktop"}>
+                 stickyOffset={stickyOffset} className={"navbar-desktop"} data-color={navBarRegularColor}
+                 data-color-onscroll={navBarRegularOnScrollColor}>
             <Menu height={height}>
                 <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions}
                              hideElement={hideLogo || logoAlignment !== 'left'} height={height}/>
@@ -191,6 +206,7 @@ const Wrapper = styled.div`
   align-items: center;
   flex-shrink: 0;
   z-index: 1002;
+  transition: background-color .2s ease-in-out;
 
   ${({navBarBehavior, stickyOffset, navBarRegularColor, isPreview}) => {
     if (navBarRegularColor === 'transparent' && !isPreview) {
