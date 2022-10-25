@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, useRef} from 'react';
 import styled, {css} from 'styled-components';
 import PropTypes from 'prop-types';
-import {logoImageHeight, logoImageWidth} from '../../consts.js';
+import {logoImageWidth} from '../../consts.js';
 import {getCropperQueryString} from '../../utils/getCropperQueryString.js';
 import NavBarPage from './Page.js';
 import NavBarButton from './Button.js';

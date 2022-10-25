@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useEffect, useState} from 'react';
+import React, {Fragment, useCallback, useEffect, useState, useRef} from 'react';
 import PropTypes from 'prop-types';
 import styled, {css} from 'styled-components';
 import {getCropperQueryString} from '../../utils/getCropperQueryString.js';
@@ -15,6 +15,7 @@ const NavBarMobile = ({
                       }) => {
 
     const [open, setOpen] = useState(isConstructor);
+    const ref = useRef();
 
     useEffect(() => {
         if (!isConstructor) {
@@ -25,6 +26,7 @@ const NavBarMobile = ({
     const {
         mobileHeight,
         navBarRegularColor,
+        navBarRegularOnScrollColor,
         mobileLogoAlignment,
         logoSrc,
         logoCropperOptions,
@@ -59,10 +61,24 @@ const NavBarMobile = ({
         }
     }, [isConstructor, disabledListClick]);
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (navBarRegularColor === 'transparent') {
+                ref.current.style.backgroundColor = window.scrollY === 0 && !open ? navBarRegularColor : navBarRegularOnScrollColor;
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        }
+    }, [open])
+
     return (
         <Container className={"navbar-mobile"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
                    isConstructor={isConstructor}>
-            <Wrapper height={mobileHeight} navBarRegularColor={navBarRegularColor} data-mobile-header={true}>
+            <Wrapper height={mobileHeight} ref={ref}
+                     navBarRegularColor={open ? navBarRegularColor === 'transparent' ? navBarRegularOnScrollColor : navBarRegularColor : navBarRegularColor}
+                     data-mobile-header={true}>
                 <IconWrapper onClick={onClick} data-mobile-menu-button={true}>
                     <Icon icon={BurgerIcon} color={'#ffffff'}/>
                 </IconWrapper>
@@ -77,7 +93,7 @@ const NavBarMobile = ({
             </Wrapper>
             <ListWrapper data-mobile-menu={true} mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight}
                          isConstructor={isConstructor} open={open}
-                         navBarRegularColor={navBarRegularColor}
+                         navBarRegularColor={navBarRegularColor === 'transparent' ? navBarRegularOnScrollColor : navBarRegularColor}
                          mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
                          navBarTextBold={navBarTextBold}
                          navBarTextItalic={navBarTextItalic}
@@ -133,6 +149,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
+  transition: background-color .2s ease-in-out;
   ${({navBarBehavior, stickyOffset, isConstructor}) =>
           navBarBehavior === 'frozen' && !isConstructor &&
           css`
