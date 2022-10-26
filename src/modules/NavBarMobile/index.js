@@ -217,7 +217,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   padding: 15px 13px 16px 15px;
-  border: solid 1px rgba(164, 198, 225, 0.39);
+  //border: solid 1px rgba(164, 198, 225, 0.39);
   height: ${({height}) => height}px;
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
   align-items: center;
