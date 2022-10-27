@@ -209,22 +209,24 @@ const Wrapper = styled.div`
   transition: background-color .2s ease-in-out;
 
   ${({navBarBehavior, stickyOffset, navBarRegularColor, isPreview}) => {
-    if (navBarRegularColor === 'transparent' && !isPreview) {
-      if (navBarBehavior === 'frozen') {
+    if (!isPreview) {
+      if (navBarRegularColor === 'transparent') {
+        if (navBarBehavior === 'frozen') {
+          return css`
+            position: fixed;
+            top: ${stickyOffset}px;
+          `;
+        }
         return css`
-          position: fixed;
+          position: absolute;
+          top: ${stickyOffset}px;
+        `;
+      } else if (navBarBehavior === 'frozen') {
+        return css`
+          position: sticky;
           top: ${stickyOffset}px;
         `;
       }
-      return css`
-        position: absolute;
-        top: ${stickyOffset}px;
-      `;
-    } else if (navBarBehavior === 'frozen') {
-      return css`
-        position: sticky;
-        top: ${stickyOffset}px;
-      `;
     }
     return "";
   }}
