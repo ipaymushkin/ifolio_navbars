@@ -23,6 +23,7 @@ const NavBar = ({
                     isStatic = false,
                     hideLogo = false,
                     isPreview = false,
+                    isListView = false,
                     rootId = "root"
                 }) => {
     const ref = useRef();
@@ -90,7 +91,7 @@ const NavBar = ({
         <Wrapper ref={ref} height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview}
                  navBarBehavior={navBarBehavior}
                  stickyOffset={stickyOffset} className={"navbar-desktop"} data-color={navBarRegularColor}
-                 data-coloronscroll={navBarRegularOnScrollColor}>
+                 data-coloronscroll={navBarRegularOnScrollColor} isListView={isListView}>
             <Menu height={height}>
                 <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions}
                              hideElement={hideLogo || logoAlignment !== 'left'} height={height}/>
@@ -208,8 +209,8 @@ const Wrapper = styled.div`
   z-index: 1002;
   transition: background-color .2s ease-in-out;
 
-  ${({navBarBehavior, stickyOffset, navBarRegularColor, isPreview}) => {
-    if (navBarRegularColor === 'transparent' && !isPreview) {
+  ${({navBarBehavior, stickyOffset, navBarRegularColor, isPreview, isListView}) => {
+    if (navBarRegularColor === 'transparent' && !isPreview && !isListView) {
       if (navBarBehavior === 'frozen') {
         return css`
           position: fixed;
@@ -258,7 +259,8 @@ const Container = styled.div`
   display: flex;
   flex: 1 1 auto;
   margin: 0 24px;
-  justify-content: ${({navBarTextAlignment}) => navBarTextAlignment};
+  // justify-content: ${({navBarTextAlignment}) => navBarTextAlignment}; // TODO
+  justify-content: flex-start;
   font-size: ${({navBarTextFontSize}) => navBarTextFontSize}px;
   font-family: ${({navBarTextFontFamily}) => navBarTextFontFamily};
   font-weight: ${({navBarTextBold}) => (navBarTextBold ? 'bold' : 'normal')};
