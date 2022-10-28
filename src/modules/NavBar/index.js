@@ -199,8 +199,9 @@ const Wrapper = styled.div`
   height: ${({height}) => height}px;
   background-color: ${({
                          navBarRegularColor,
-                         isPreview
-                       }) => isPreview && navBarRegularColor === 'transparent' ? "black" : navBarRegularColor};
+                         isPreview,
+                         isListView
+                       }) => (isPreview || isListView) && navBarRegularColor === 'transparent' ? "black" : navBarRegularColor};
   padding: 0 50px;
   width: 100%;
   margin: auto;
@@ -261,7 +262,7 @@ const Container = styled.div`
   display: flex;
   flex: 1 1 auto;
   margin: 0 24px;
-  // justify-content: ${({navBarTextAlignment}) => navBarTextAlignment}; // TODO
+    // justify-content: ${({navBarTextAlignment}) => navBarTextAlignment}; // TODO
   justify-content: flex-start;
   font-size: ${({navBarTextFontSize}) => navBarTextFontSize}px;
   font-family: ${({navBarTextFontFamily}) => navBarTextFontFamily};
