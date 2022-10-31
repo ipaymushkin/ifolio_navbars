@@ -115,22 +115,24 @@ const NavBar = ({
                                     let component = null;
                                     if (el.type === 'button') {
                                         component = (
-                                            <NavBarButton
-                                                {...el}
-                                                disabledRedirect={disabledRedirect}
-                                                buttonSettingsRoundCorners={buttonSettingsRoundCorners}
-                                                buttonSettingsBorderWidth={buttonSettingsBorderWidth}
-                                                buttonSettingsRegularBorder={buttonSettingsRegularBorder}
-                                                buttonSettingsRegularFill={buttonSettingsRegularFill}
-                                                buttonSettingsVerticalPadding={buttonSettingsVerticalPadding}
-                                                buttonSettingsHorizontalPadding={buttonSettingsHorizontalPadding}
-                                                buttonSettingsHoverClickedBorder={buttonSettingsHoverClickedBorder}
-                                                buttonSettingsHoverClickedFill={buttonSettingsHoverClickedFill}
-                                                buttonSettingsTextColorRegular={buttonSettingsTextColorRegular}
-                                                buttonSettingsTextColorHover={buttonSettingsTextColorHover}
-                                                buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
-                                                navBarTextFontSize={navBarTextFontSize}
-                                            />
+                                            <NavBarButtonWrapper>
+                                                <NavBarButton
+                                                    {...el}
+                                                    disabledRedirect={disabledRedirect}
+                                                    buttonSettingsRoundCorners={buttonSettingsRoundCorners}
+                                                    buttonSettingsBorderWidth={buttonSettingsBorderWidth}
+                                                    buttonSettingsRegularBorder={buttonSettingsRegularBorder}
+                                                    buttonSettingsRegularFill={buttonSettingsRegularFill}
+                                                    buttonSettingsVerticalPadding={buttonSettingsVerticalPadding}
+                                                    buttonSettingsHorizontalPadding={buttonSettingsHorizontalPadding}
+                                                    buttonSettingsHoverClickedBorder={buttonSettingsHoverClickedBorder}
+                                                    buttonSettingsHoverClickedFill={buttonSettingsHoverClickedFill}
+                                                    buttonSettingsTextColorRegular={buttonSettingsTextColorRegular}
+                                                    buttonSettingsTextColorHover={buttonSettingsTextColorHover}
+                                                    buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
+                                                    navBarTextFontSize={navBarTextFontSize}
+                                                />
+                                            </NavBarButtonWrapper>
                                         );
                                     } else if (el.type === 'page') {
                                         component = (
@@ -259,11 +261,10 @@ const Menu = styled.div`
  */
 
 const Container = styled.div`
-  display: flex;
-  flex: 1 1 auto;
+  display: inline;
+  white-space: nowrap;
   margin: 0 24px;
-    // justify-content: ${({navBarTextAlignment}) => navBarTextAlignment}; // TODO
-  justify-content: flex-start;
+  text-align: ${({navBarTextAlignment}) => navBarTextAlignment};
   font-size: ${({navBarTextFontSize}) => navBarTextFontSize}px;
   font-family: ${({navBarTextFontFamily}) => navBarTextFontFamily};
   font-weight: ${({navBarTextBold}) => (navBarTextBold ? 'bold' : 'normal')};
@@ -271,18 +272,22 @@ const Container = styled.div`
   text-decoration: ${({navBarTextUnderline}) => (navBarTextUnderline ? 'underline' : 'none')};
   color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
   height: 100%;
-  align-items: center;
   width: calc(100% - ${2 * logoImageWidth + 50}px);
   overflow-x: auto;
   overflow-y: hidden;
 
   > div {
     margin-right: ${({navBarTextSpacing}) => navBarTextSpacing}px;
+    display: inline-block;
+    vertical-align: middle;
 
     &:last-child {
       margin-right: 0;
     }
   }
+`;
+
+const NavBarButtonWrapper = styled.div`
 `;
 
 export default NavBar;
