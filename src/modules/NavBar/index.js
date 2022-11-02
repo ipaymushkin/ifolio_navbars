@@ -78,16 +78,23 @@ const NavBar = ({
 
     useEffect(() => {
         const handleScroll = () => {
-            console.log('is scroll', navBarRegularColor, navBarRegularOnScrollColor);
             if (navBarRegularColor === 'transparent') {
-                ref.current.style.backgroundColor = window.scrollY === 0 ? navBarRegularColor : navBarRegularOnScrollColor;
+                let color = navBarRegularOnScrollColor;
+                if (window.scrollY === 0) {
+                    if (isPreview) {
+                        color = "#000";
+                    } else {
+                        color = navBarRegularColor;
+                    }
+                }
+                ref.current.style.backgroundColor = color;
             }
         }
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
         }
-    }, [navBarRegularColor, navBarRegularOnScrollColor])
+    }, [navBarRegularColor, navBarRegularOnScrollColor, isPreview])
 
     return (
         <Wrapper ref={ref} height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview}
@@ -224,9 +231,15 @@ const Wrapper = styled.div`
   transition: background-color .2s ease-in-out;
 
   ${({navBarBehavior, stickyOffset, navBarRegularColor, isPreview, isListView}) => {
-    if (!isPreview && !isListView) {
+    if (!isListView) {
       if (navBarRegularColor === 'transparent') {
         if (navBarBehavior === 'frozen') {
+          if (isPreview) {
+            return css`
+              position: sticky;
+              top: ${stickyOffset}px;
+            `;
+          }
           return css`
             position: fixed;
             top: ${stickyOffset}px;
