@@ -216,7 +216,7 @@ const ListWrapper = styled.div
 const Wrapper = styled.div`
   display: flex;
   width: 100%;
-  padding: 15px 13px 16px 15px;
+  padding: 15px 13px 16px 5px;
   //border: solid 1px rgba(164, 198, 225, 0.39);
   height: ${({height}) => height}px;
   background-color: ${({navBarRegularColor}) => navBarRegularColor};
@@ -228,7 +228,7 @@ const Wrapper = styled.div`
 
 const LogoWrapper = styled.div`
   display: flex;
-  width: calc(100% - 50px);
+  width: calc(100% - 57px);
   justify-content: ${({mobileLogoAlignment}) => {
     if (mobileLogoAlignment === 'center') {
       return 'center';
@@ -241,8 +241,7 @@ const LogoWrapper = styled.div`
 
 const LogoInner = styled.div`
   display: flex;
-  width: calc(100% - 50px);
-  justify-content: center;
+  width: 250px;
 `
 
 const Logo = styled.div`
@@ -252,7 +251,12 @@ const Logo = styled.div`
 
 const IconWrapper = styled.div`
   display: flex;
-  //position: absolute;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  > div {
+    margin: auto;
+  }
 `;
 
 NavBarMobile.propTypes = {

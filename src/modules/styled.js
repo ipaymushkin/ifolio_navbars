@@ -8,6 +8,7 @@ export const PageWrapper = styled.div`
   justify-content: center;
   cursor: pointer;
   height: 100%;
+  transition: all 300ms ease-out;
 
   &:hover {
     color: ${({navBarTextHoverColor}) => navBarTextHoverColor};

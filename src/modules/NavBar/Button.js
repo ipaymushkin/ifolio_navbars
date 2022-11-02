@@ -57,6 +57,7 @@ const ButtonWrapper = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
+  transition: all 300ms ease-out;
   border-radius: ${({buttonSettingsRoundCorners}) => buttonSettingsRoundCorners}px;
   border: ${({buttonSettingsBorderWidth}) => buttonSettingsBorderWidth}px solid ${({buttonSettingsRegularBorder}) => buttonSettingsRegularBorder};
   background: ${({buttonSettingsRegularFill}) => buttonSettingsRegularFill};

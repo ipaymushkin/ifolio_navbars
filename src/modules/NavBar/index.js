@@ -205,7 +205,7 @@ const Wrapper = styled.div`
                          isPreview,
                          isListView
                        }) => (isPreview || isListView) && navBarRegularColor === 'transparent' ? "black" : navBarRegularColor};
-  padding: 0 50px;
+  padding: 0 24px;
   width: 100%;
   margin: auto;
   align-items: center;
@@ -247,7 +247,7 @@ const Menu = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  max-width: 1120px;
+  max-width: 1367px;
   margin: auto;
   height: ${({height}) => height}px;
 `;
@@ -281,6 +281,7 @@ const Container = styled.div`
     margin-right: ${({navBarTextSpacing}) => navBarTextSpacing}px;
     display: inline-block;
     vertical-align: middle;
+    transition: all 300ms ease-out;
 
     &:last-child {
       margin-right: 0;
