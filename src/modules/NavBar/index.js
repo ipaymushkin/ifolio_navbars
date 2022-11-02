@@ -273,7 +273,7 @@ const Container = styled.div`
   text-decoration: ${({navBarTextUnderline}) => (navBarTextUnderline ? 'underline' : 'none')};
   color: ${({navBarTextRegularColor}) => navBarTextRegularColor};
   height: 100%;
-  width: calc(100% - ${2 * logoImageWidth + 50}px);
+  width: calc(100% - ${logoImageWidth + 50}px);
   overflow-x: auto;
   overflow-y: hidden;
 
