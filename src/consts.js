@@ -8,50 +8,50 @@ export const config = {
     "height": 51,
     "logoSrc": "https://api.ifolio.cloud/medias/IA/BL/IABLlu75QaNFlnKKhHpuOlBnQqkouLacPCGHjqR2.png",
     "structure": [
-        {
-            "id": "238dd280-5931-11ed-a28b-ef989d3b3c05",
-            "link": null,
-            "type": "page",
-            "title": "ABOUT",
-            "children": []
-        },
-        {
-            "id": "2ccff850-5931-11ed-a28b-ef989d3b3c05",
-            "link": null,
-            "type": "page",
-            "title": "ANALYTICS",
-            "children": []
-        },
-        {
-            "id": "3248ba10-5931-11ed-a28b-ef989d3b3c05",
-            "link": null,
-            "type": "page",
-            "title": "CAMPAIGNS",
-            "children": []
-        },
-        {
-            "id": "2a5a8b80-5931-11ed-a28b-ef989d3b3c05",
-            "link": null,
-            "type": "page",
-            "title": "PRICING",
-            "children": [
-                {
-                    "id": "37c684e0-5931-11ed-a28b-ef989d3b3c05",
-                    "link": null,
-                    "type": "page",
-                    "title": "CONTACT",
-                    "children": []
-                }
-            ],
-            "expanded": true
-        },
-        {
-            "id": "1d764340-5932-11ed-a28b-ef989d3b3c05",
-            "link": null,
-            "type": "button",
-            "title": "LOG-IN",
-            "children": []
-        }
+        // {
+        //     "id": "238dd280-5931-11ed-a28b-ef989d3b3c05",
+        //     "link": null,
+        //     "type": "page",
+        //     "title": "ABOUT",
+        //     "children": []
+        // },
+        // {
+        //     "id": "2ccff850-5931-11ed-a28b-ef989d3b3c05",
+        //     "link": null,
+        //     "type": "page",
+        //     "title": "ANALYTICS",
+        //     "children": []
+        // },
+        // {
+        //     "id": "3248ba10-5931-11ed-a28b-ef989d3b3c05",
+        //     "link": null,
+        //     "type": "page",
+        //     "title": "CAMPAIGNS",
+        //     "children": []
+        // },
+        // {
+        //     "id": "2a5a8b80-5931-11ed-a28b-ef989d3b3c05",
+        //     "link": null,
+        //     "type": "page",
+        //     "title": "PRICING",
+        //     "children": [
+        //         {
+        //             "id": "37c684e0-5931-11ed-a28b-ef989d3b3c05",
+        //             "link": null,
+        //             "type": "page",
+        //             "title": "CONTACT",
+        //             "children": []
+        //         }
+        //     ],
+        //     "expanded": true
+        // },
+        // {
+        //     "id": "1d764340-5932-11ed-a28b-ef989d3b3c05",
+        //     "link": null,
+        //     "type": "button",
+        //     "title": "LOG-IN",
+        //     "children": []
+        // }
     ],
     "mobileHeight": 67,
     "logoAlignment": "left",
@@ -86,7 +86,7 @@ export const config = {
         }
     },
     "navBarClickedColor": "#41c5c2",
-    "navBarRegularColor": "#000",
+    "navBarRegularColor": "transparent",
     "navBarTextFontSize": 14,
     "mobileLogoAlignment": "right",
     "mobileTextAlignment": "left",

@@ -78,6 +78,7 @@ const NavBar = ({
 
     useEffect(() => {
         const handleScroll = () => {
+            console.log('is scroll', navBarRegularColor, navBarRegularOnScrollColor);
             if (navBarRegularColor === 'transparent') {
                 ref.current.style.backgroundColor = window.scrollY === 0 ? navBarRegularColor : navBarRegularOnScrollColor;
             }
@@ -86,7 +87,7 @@ const NavBar = ({
         return () => {
             window.removeEventListener("scroll", handleScroll);
         }
-    }, [])
+    }, [navBarRegularColor, navBarRegularOnScrollColor])
 
     return (
         <Wrapper ref={ref} height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview}
@@ -110,7 +111,8 @@ const NavBar = ({
                 >
                     {
                         structure?.length === 0 && isPreview ?
-                            <PreviewText navBarTextAlignment={navBarTextAlignment}>Navigation will preview here once created</PreviewText> :
+                            <PreviewText navBarTextAlignment={navBarTextAlignment}>Navigation will preview here once
+                                created</PreviewText> :
                             <>
                                 {structure?.map((el) => {
                                     let component = null;
@@ -191,12 +193,12 @@ const PreviewText = styled.div`
   display: flex !important;
   align-items: center;
   justify-content: ${({navBarTextAlignment}) => {
-      if (navBarTextAlignment === 'right') {
-          return 'flex-end';
-      } else if (navBarTextAlignment === 'left') {
-          return 'flex-start';
-      }
-      return 'center';
+    if (navBarTextAlignment === 'right') {
+      return 'flex-end';
+    } else if (navBarTextAlignment === 'left') {
+      return 'flex-start';
+    }
+    return 'center';
   }};
   width: auto;
   font-size: 15px;
