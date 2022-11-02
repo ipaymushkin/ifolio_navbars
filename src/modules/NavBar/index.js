@@ -8,6 +8,7 @@ import NavBarButton from './Button.js';
 import CropImage from '../../components/CropImage/index.js';
 
 const LogoElement = ({logoSrc, logoCropperOptions, hideElement, height}) => {
+    if (hideElement) return null;
     return (
         <Logo hideElement={hideElement} height={height}>
             <CropImage source={logoSrc + getCropperQueryString(logoCropperOptions)} crop={logoCropperOptions}/>
