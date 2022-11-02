@@ -110,7 +110,7 @@ const NavBar = ({
                 >
                     {
                         structure?.length === 0 && isPreview ?
-                            <PreviewText>Navigation will preview here once created</PreviewText> :
+                            <PreviewText navBarTextAlignment={navBarTextAlignment}>Navigation will preview here once created</PreviewText> :
                             <>
                                 {structure?.map((el) => {
                                     let component = null;
@@ -188,13 +188,21 @@ NavBar.propTypes = {
 
 const PreviewText = styled.div`
   font-family: Montserrat-bold, sans-serif;
-  display: flex;
+  display: flex !important;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  justify-content: ${({navBarTextAlignment}) => {
+      if (navBarTextAlignment === 'right') {
+          return 'flex-end';
+      } else if (navBarTextAlignment === 'left') {
+          return 'flex-start';
+      }
+      return 'center';
+  }};
+  width: auto;
   font-size: 15px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+  height: 100%;
 `
 
 const Wrapper = styled.div`
