@@ -130,6 +130,7 @@ const NavBarMobile = ({
                                     buttonSettingsTextColorRegular={buttonSettingsTextColorRegular}
                                     buttonSettingsTextColorHover={buttonSettingsTextColorHover}
                                     buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
+                                    isConstructor={isConstructor}
                                 />
                             );
                         } else if (el.type === 'page') {
@@ -142,6 +143,7 @@ const NavBarMobile = ({
                                     navBarTextClickedColor={navBarTextClickedColor}
                                     mobileTextAlignment={mobileTextAlignment}
                                     isStatic={isStatic}
+                                    isConstructor={isConstructor}
                                 />
                             );
                         }

@@ -30,6 +30,7 @@ const DropDown = memo((props) => {
         setOpen,
         rootId,
         parentRef,
+        isPreview,
     } = props;
 
     const isClient = typeof window === "object";
@@ -68,7 +69,7 @@ const DropDown = memo((props) => {
                 dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
                 onClick={() => {
                     if (el.link?.value && !disabledRedirect) {
-                        openLinkInNewTab(el.link.value);
+                        openLinkInNewTab(el.link.value, isPreview);
                         setOpen(false);
                     } else {
                         setOpen(false);
@@ -114,6 +115,7 @@ const NavBarPage = memo(
          navBarHoverColor,
          navBarClickedColor,
          rootId,
+         isPreview,
      }) => {
         const [open, setOpen] = useState(isStatic);
         const link = linkProps?.value;
@@ -133,9 +135,9 @@ const NavBarPage = memo(
             if (isDropdown && !disabledListClick) {
                 setOpen((state) => !state);
             } else if (!isDropdown && !disabledRedirect && link) {
-                openLinkInNewTab(link);
+                openLinkInNewTab(link, isPreview);
             }
-        }, [disabledListClick, disabledRedirect, isDropdown, link]);
+        }, [disabledListClick, disabledRedirect, isDropdown, link, isPreview]);
 
         useEffect(() => {
             const handleScroll = () => {
@@ -188,6 +190,7 @@ const NavBarPage = memo(
                         disabledRedirect={disabledRedirect}
                         rootId={rootId}
                         parentRef={containerRef}
+                        isPreview={isPreview}
                     />
                 }
             </Container>

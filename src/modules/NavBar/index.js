@@ -141,6 +141,7 @@ const NavBar = ({
                                                     buttonSettingsTextColorHover={buttonSettingsTextColorHover}
                                                     buttonSettingsTextColorClicked={buttonSettingsTextColorClicked}
                                                     navBarTextFontSize={navBarTextFontSize}
+                                                    isPreview={isPreview}
                                                 />
                                             </NavBarButtonWrapper>
                                         );
@@ -170,6 +171,7 @@ const NavBar = ({
                                                 navBarHoverColor={navBarHoverColor}
                                                 navBarClickedColor={navBarClickedColor}
                                                 rootId={rootId}
+                                                isPreview={isPreview}
                                             />
                                         );
                                     }

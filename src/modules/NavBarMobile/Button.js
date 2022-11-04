@@ -20,14 +20,15 @@ const NavBarButton = memo(
          buttonSettingsTextColorRegular,
          buttonSettingsTextColorHover,
          buttonSettingsTextColorClicked,
-         mobileTextAlignment
+         mobileTextAlignment,
+         isConstructor
      }) => {
         const link = linkProps?.value;
         const onClick = useCallback(() => {
             if (link && !disabledRedirect) {
-                openLinkInNewTab(link);
+                openLinkInNewTab(link, isConstructor);
             }
-        }, [link, disabledRedirect]);
+        }, [link, disabledRedirect, isConstructor]);
         return (
             <Row onClick={onClick} link={link} mobileTextAlignment={mobileTextAlignment}>
                 <ButtonWrapper

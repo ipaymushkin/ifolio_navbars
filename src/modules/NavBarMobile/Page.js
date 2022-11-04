@@ -17,7 +17,8 @@ const NavBarPage = memo(
          navBarTextClickedColor,
          children,
          mobileTextAlignment,
-         isStatic
+         isStatic,
+         isConstructor
      }) => {
         const link = linkProps?.value;
         const [open, setOpen] = useState(isStatic);
@@ -28,9 +29,9 @@ const NavBarPage = memo(
             if (isDropdown && !disabledListClick) {
                 setOpen((state) => !state);
             } else if (!isDropdown && !disabledRedirect && link) {
-                openLinkInNewTab(link);
+                openLinkInNewTab(link, isConstructor);
             }
-        }, [disabledListClick, disabledRedirect, isDropdown, link]);
+        }, [disabledListClick, disabledRedirect, isDropdown, link, isConstructor]);
 
         return (
             <Wrapper>
@@ -58,7 +59,7 @@ const NavBarPage = memo(
                                 key={el.id}
                                 onClick={() => {
                                     if (el.link?.value && !disabledRedirect) {
-                                        openLinkInNewTab(el.link.value);
+                                        openLinkInNewTab(el.link.value, isConstructor);
                                     }
                                 }}
                                 link={el.link?.value}

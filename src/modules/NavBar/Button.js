@@ -19,16 +19,17 @@ const NavBarButton = memo(
          buttonSettingsTextColorRegular,
          buttonSettingsTextColorHover,
          buttonSettingsTextColorClicked,
-         navBarTextFontSize
+         navBarTextFontSize,
+         isPreview
      }) => {
 
         const link = linkProps?.value;
 
         const onClick = useCallback(() => {
             if (link && !disabledRedirect) {
-                openLinkInNewTab(link);
+                openLinkInNewTab(link, isPreview);
             }
-        }, [link, disabledRedirect]);
+        }, [link, disabledRedirect, isPreview]);
         return (
             <ButtonWrapper
                 buttonSettingsRoundCorners={buttonSettingsRoundCorners}

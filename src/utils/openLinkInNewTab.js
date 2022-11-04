@@ -1,1 +1,2 @@
-export const openLinkInNewTab = (link) => window.open(link, '_self', 'noreferrer noopener');
+export const openLinkInNewTab = (link, inNewTab) =>
+    window.open(link, inNewTab ? '_blank' : '_self', 'noreferrer noopener');

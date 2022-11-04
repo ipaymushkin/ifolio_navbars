@@ -4,112 +4,118 @@ export const logoImageWidth = 250;
 export const logoImageHeight = 80;
 
 export const config = {
-    "name": "iFOLIO Cloud Nav Bar",
-    "height": 51,
-    "logoSrc": "https://api.ifolio.cloud/medias/IA/BL/IABLlu75QaNFlnKKhHpuOlBnQqkouLacPCGHjqR2.png",
+    "name": "test icon color1",
+    "height": 58,
+    "logoSrc": "https://ifolio-cloud-s3.s3.amazonaws.com/img/navbar_logo250x80.png",
     "structure": [
-        // {
-        //     "id": "238dd280-5931-11ed-a28b-ef989d3b3c05",
-        //     "link": null,
-        //     "type": "page",
-        //     "title": "ABOUT",
-        //     "children": []
-        // },
-        // {
-        //     "id": "2ccff850-5931-11ed-a28b-ef989d3b3c05",
-        //     "link": null,
-        //     "type": "page",
-        //     "title": "ANALYTICS",
-        //     "children": []
-        // },
-        // {
-        //     "id": "3248ba10-5931-11ed-a28b-ef989d3b3c05",
-        //     "link": null,
-        //     "type": "page",
-        //     "title": "CAMPAIGNS",
-        //     "children": []
-        // },
-        // {
-        //     "id": "2a5a8b80-5931-11ed-a28b-ef989d3b3c05",
-        //     "link": null,
-        //     "type": "page",
-        //     "title": "PRICING",
-        //     "children": [
-        //         {
-        //             "id": "37c684e0-5931-11ed-a28b-ef989d3b3c05",
-        //             "link": null,
-        //             "type": "page",
-        //             "title": "CONTACT",
-        //             "children": []
-        //         }
-        //     ],
-        //     "expanded": true
-        // },
-        // {
-        //     "id": "1d764340-5932-11ed-a28b-ef989d3b3c05",
-        //     "link": null,
-        //     "type": "button",
-        //     "title": "LOG-IN",
-        //     "children": []
-        // }
+        {
+            "id": "52ff32c0-5a85-11ed-92af-95478d94f522",
+            "link": {
+                "name": "Ukhanov CVX",
+                "type": "ifolio",
+                "value": "http://localhost:3000/download-app"
+            },
+            "type": "page",
+            "title": "with link",
+            "children": []
+        },
+        {
+            "id": "55f7b240-5a85-11ed-92af-95478d94f522",
+            "link": null,
+            "type": "page",
+            "title": "without link",
+            "children": []
+        },
+        {
+            "id": "abee9f70-5c1e-11ed-be7e-cb281a8f3f7b",
+            "type": "page",
+            "title": "inner link here",
+            "children": [
+                {
+                    "id": "cf809c40-5c1e-11ed-be7e-cb281a8f3f7b",
+                    "type": "page",
+                    "title": "here",
+                    "children": [],
+                    "link": {
+                        "type": "link",
+                        "value": "http://localhost:6006/?path=/story/navbar-desktop--primary"
+                    }
+                }
+            ],
+            "link": {
+                "type": "link",
+                "value": "http://seasonvar.ru/"
+            },
+            "expanded": true
+        },
+        {
+            "id": "e1e6b180-5c1e-11ed-be7e-cb281a8f3f7b",
+            "type": "button",
+            "title": "button link",
+            "children": [],
+            "link": {
+                "type": "link",
+                "value": "https://aliexpress.ru/"
+            }
+        }
     ],
-    "mobileHeight": 67,
+    "mobileHeight": 65,
     "logoAlignment": "left",
     "mobileFontSize": 14,
     "navBarBehavior": "frozen",
     "navBarTextBold": true,
-    "navBarHoverColor": "#ffffff",
+    "navBarHoverColor": "#41c5c2",
     "navBarTextItalic": false,
     "navBarTextSpacing": 10,
     "logoCropperOptions": {
-        "x": -3.026,
-        "y": -11.141,
-        "zoom": 0.5691982436168481,
-        "width": 560.456,
-        "height": 91.483,
+        "x": 0,
+        "y": 0,
+        "zoom": 1.4,
+        "width": 500,
+        "height": 160,
         "rotate": 0,
         "scaleX": 1,
         "scaleY": 1,
         "imageBox": {
             "x": 0,
             "y": 0,
-            "width": 559,
-            "height": 68
+            "width": 500,
+            "height": 160
         },
-        "imgWidth": 559,
-        "imgHeight": 68,
+        "imgWidth": 250,
+        "imgHeight": 80,
         "imagePosition": {
-            "x": 0.54,
-            "y": 12.18,
-            "width": 99.75,
-            "height": 74.34
+            "x": 0,
+            "y": 0,
+            "width": 100,
+            "height": 100
         }
     },
     "navBarClickedColor": "#41c5c2",
-    "navBarRegularColor": "transparent",
+    "navBarRegularColor": "#41c5c2",
     "navBarTextFontSize": 14,
     "mobileLogoAlignment": "right",
     "mobileTextAlignment": "left",
-    "navBarTextAlignment": "right",
+    "navBarTextAlignment": "left",
     "navBarTextUnderline": false,
-    "navBarTextFontFamily": "Avenir-heavy",
-    "navBarTextHoverColor": "#25bec8",
-    "navBarTextClickedColor": "#ffffff",
+    "navBarTextFontFamily": "Arial",
+    "navBarTextHoverColor": "#292e50",
+    "navBarTextClickedColor": "#292e50",
     "navBarTextRegularColor": "#ffffff",
     "dropdownSettingsTextBold": false,
     "buttonSettingsBorderWidth": 2,
     "buttonSettingsRegularFill": "transparent",
     "buttonSettingsRoundCorners": 20,
     "dropdownSettingsTextItalic": false,
-    "navBarRegularOnScrollColor": "#1f2741",
+    "navBarRegularOnScrollColor": "#41c5c2",
     "buttonSettingsRegularBorder": "#fff",
-    "buttonSettingsTextColorHover": "#1f2741",
+    "buttonSettingsTextColorHover": "#fff",
     "dropdownSettingsInactiveFill": "#2cbab7",
     "dropdownSettingsTextFontSize": 14,
     "buttonSettingsVerticalPadding": 8,
     "dropdownSettingsTextUnderline": false,
-    "buttonSettingsHoverClickedFill": "#ffffff",
-    "buttonSettingsTextColorClicked": "#1f2741",
+    "buttonSettingsHoverClickedFill": "#292e50",
+    "buttonSettingsTextColorClicked": "#fff",
     "buttonSettingsTextColorRegular": "#fff",
     "dropdownSettingsInactiveBorder": "#2cbab7",
     "dropdownSettingsTextColorHover": "#41c5c2",
