@@ -1,4 +1,4 @@
-import React, {memo, useCallback, useEffect, useState} from 'react';
+import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -33,6 +33,8 @@ const DropDown = memo((props) => {
         isPreview,
     } = props;
 
+    const ref= useRef();
+
     const isClient = typeof window === "object";
 
     let left = 0, top = 0;
@@ -50,7 +52,7 @@ const DropDown = memo((props) => {
         }
     }
 
-    const component = <DropdownWrapper data-list={true} className={"navbar-list"} left={left} top={top} dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}>
+    const component = <DropdownWrapper ref={ref} data-list={true} className={"navbar-list"} left={left} top={top} dropdownSettingsInactiveBorder={dropdownSettingsInactiveBorder}>
         {childs.map((el) => (
             <DropdownElement
                 key={el.id}
@@ -67,20 +69,32 @@ const DropDown = memo((props) => {
                 dropdownSettingsTextItalic={dropdownSettingsTextItalic}
                 dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
                 dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
-                onClick={() => {
-                    if (el.link?.value && !disabledRedirect) {
-                        openLinkInNewTab(el.link.value, isPreview);
-                        setOpen(false);
-                    } else {
-                        setOpen(false);
-                    }
-                }}
                 data-link={el.link?.value}
             >
                 {el.title}
             </DropdownElement>
         ))}
     </DropdownWrapper>
+
+    useEffect(() => {
+        const list = ref.current.querySelectorAll('[data-link]');
+        const onClick = (e) => {
+            if (e.target?.dataset?.link && !disabledRedirect) {
+                openLinkInNewTab(e.target.dataset.link, isPreview);
+                setOpen(false);
+            } else {
+                setOpen(false);
+            }
+        }
+        list.forEach(el => {
+            el.addEventListener('click', onClick)
+        })
+        return () => {
+            list.forEach(el => {
+                el.removeEventListener('click', onClick)
+            })
+        }
+    }, [isClient, isPreview, disabledRedirect]);
 
     if (isClient) {
         return ReactDOM.createPortal(component, document.getElementById(rootId));
@@ -121,7 +135,10 @@ const NavBarPage = memo(
         const link = linkProps?.value;
 
         const ref = useOutsideClick(() => {
-            setOpen(false);
+            setTimeout(() => {
+                setOpen(false);
+            }, 200)
+
         });
 
         const [containerRef, setContainerRef] = useState(null);
