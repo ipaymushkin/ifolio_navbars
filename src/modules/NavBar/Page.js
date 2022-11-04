@@ -70,31 +70,20 @@ const DropDown = memo((props) => {
                 dropdownSettingsHorizontalPadding={dropdownSettingsHorizontalPadding}
                 dropdownSettingsVerticalPadding={dropdownSettingsVerticalPadding}
                 data-link={el.link?.value}
+                onClick={() => {
+                    console.log('????')
+                    if (el.link?.value && !disabledRedirect) {
+                        openLinkInNewTab(el.link?.value, isPreview);
+                        setOpen(false);
+                    } else {
+                        setOpen(false);
+                    }
+                }}
             >
                 {el.title}
             </DropdownElement>
         ))}
     </DropdownWrapper>
-
-    useEffect(() => {
-        const list = ref.current.querySelectorAll('[data-link]');
-        const onClick = (e) => {
-            if (e.target?.dataset?.link && !disabledRedirect) {
-                openLinkInNewTab(e.target.dataset.link, isPreview);
-                setOpen(false);
-            } else {
-                setOpen(false);
-            }
-        }
-        list.forEach(el => {
-            el.addEventListener('click', onClick)
-        })
-        return () => {
-            list.forEach(el => {
-                el.removeEventListener('click', onClick)
-            })
-        }
-    }, [isClient, isPreview, disabledRedirect]);
 
     if (isClient) {
         return ReactDOM.createPortal(component, document.getElementById(rootId));
@@ -208,6 +197,7 @@ const NavBarPage = memo(
                         rootId={rootId}
                         parentRef={containerRef}
                         isPreview={isPreview}
+                        open={open}
                     />
                 }
             </Container>
