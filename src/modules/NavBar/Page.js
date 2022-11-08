@@ -168,6 +168,7 @@ const NavBarPage = memo(
                     data-dropdowncolor={navBarHoverColor}
                     open={open}
                     isDropdown={isDropdown}
+                    isStatic={isStatic}
                 >
                     {title}{' '}
                     {isDropdown && (
