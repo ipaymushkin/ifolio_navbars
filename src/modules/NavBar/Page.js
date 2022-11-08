@@ -250,13 +250,13 @@ const DropdownElement = styled.div`
 
   &:hover {
     background: ${({dropdownSettingsHoverClickedFill}) => dropdownSettingsHoverClickedFill};
-    border: 2px solid ${({dropdownSettingsHoverClickedBorder}) => dropdownSettingsHoverClickedBorder};
+    border-color: ${({dropdownSettingsHoverClickedBorder}) => dropdownSettingsHoverClickedBorder};
     color: ${({dropdownSettingsTextColorHover}) => dropdownSettingsTextColorHover};
   }
 
   &:active {
     background: ${({dropdownSettingsHoverClickedFill}) => dropdownSettingsHoverClickedFill};
-    border: 2px solid ${({dropdownSettingsHoverClickedBorder}) => dropdownSettingsHoverClickedBorder};
+    border-color: ${({dropdownSettingsHoverClickedBorder}) => dropdownSettingsHoverClickedBorder};
     color: ${({dropdownSettingsTextColorClicked}) => dropdownSettingsTextColorClicked};
   }
 `;
