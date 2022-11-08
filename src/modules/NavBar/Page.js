@@ -165,9 +165,9 @@ const NavBarPage = memo(
                     onClick={onClick}
                     data-link={!isDropdown ? link : undefined}
                     data-isdropdown={isDropdown}
+                    data-dropdowncolor={navBarHoverColor}
                     open={open}
                     isDropdown={isDropdown}
-                    data-dropdownactivecolor={navBarHoverColor}
                 >
                     {title}{' '}
                     {isDropdown && (
