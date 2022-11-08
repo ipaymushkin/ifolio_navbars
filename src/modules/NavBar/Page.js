@@ -149,9 +149,9 @@ const NavBarPage = memo(
             const handleScroll = () => {
                 setOpen(false)
             }
-            document.body.addEventListener("scroll", handleScroll);
+            window.addEventListener("scroll", handleScroll);
             return () => {
-                document.body.removeEventListener("scroll", handleScroll);
+                window.removeEventListener("scroll", handleScroll);
             }
         }, [])
 
