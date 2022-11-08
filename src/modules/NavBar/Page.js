@@ -156,13 +156,18 @@ const NavBarPage = memo(
         }, [])
 
         return (
-            <Container ref={ref} navBarHoverColor={navBarHoverColor} navBarClickedColor={navBarClickedColor}>
+            <Container ref={ref} >
                 <PageWrapperDesktop
                     navBarTextHoverColor={navBarTextHoverColor}
                     navBarTextClickedColor={navBarTextClickedColor}
+                    navBarHoverColor={navBarHoverColor}
+                    navBarClickedColor={navBarClickedColor}
                     onClick={onClick}
                     data-link={!isDropdown ? link : undefined}
                     data-isdropdown={isDropdown}
+                    open={open}
+                    isDropdown={isDropdown}
+                    data-dropdownactivecolor={navBarHoverColor}
                 >
                     {title}{' '}
                     {isDropdown && (
@@ -208,14 +213,6 @@ const NavBarPage = memo(
 const Container = styled.div`
   position: relative;
   height: 100%;
-
-  &:hover {
-    background: ${({navBarHoverColor}) => navBarHoverColor};
-  }
-
-  &:active {
-    background: ${({navBarClickedColor}) => navBarClickedColor};
-  }
 `;
 
 const DropdownWrapper = styled.div`
