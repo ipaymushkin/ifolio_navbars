@@ -4,59 +4,130 @@ export const logoImageWidth = 250;
 export const logoImageHeight = 80;
 
 export const config = {
-    "name": "test icon color1",
-    "height": 58,
-    "logoSrc": "https://ifolio-cloud-s3.s3.amazonaws.com/img/navbar_logo250x80.png",
+    "name": "iFOLIO Cloud Navigation",
+    "height": 56,
+    "logoSrc": "https://api.ifolio.cloud/medias/IA/BL/IABLlu75QaNFlnKKhHpuOlBnQqkouLacPCGHjqR2.png",
     "structure": [
         {
-            "id": "52ff32c0-5a85-11ed-92af-95478d94f522",
+            "id": "fe0408e0-5e08-11ed-9485-5711dd46fd25",
             "link": {
-                "name": "Ukhanov CVX",
+                "name": "iFOLIO Cloud | Home",
                 "type": "ifolio",
-                "value": "http://localhost:3000/download-app"
+                "value": "https://ifolio.cloud/web"
             },
             "type": "page",
-            "title": "with link",
+            "title": "HOME",
             "children": []
         },
         {
-            "id": "55f7b240-5a85-11ed-92af-95478d94f522",
+            "id": "468ccc30-5ba4-11ed-bb0b-f175ea16a348",
             "link": null,
             "type": "page",
-            "title": "without link",
-            "children": []
-        },
-        {
-            "id": "abee9f70-5c1e-11ed-be7e-cb281a8f3f7b",
-            "type": "page",
-            "title": "inner link here",
+            "title": "ABOUT US",
             "children": [
                 {
-                    "id": "cf809c40-5c1e-11ed-be7e-cb281a8f3f7b",
-                    "type": "page",
-                    "title": "here",
-                    "children": [],
+                    "id": "6f208600-5ba4-11ed-bb0b-f175ea16a348",
                     "link": {
-                        "type": "link",
-                        "value": "http://localhost:6006/?path=/story/navbar-desktop--primary"
-                    }
+                        "name": "iFOLIO Cloud | About Us",
+                        "type": "ifolio",
+                        "value": "https://ifolio.cloud/About-Us"
+                    },
+                    "type": "page",
+                    "title": "ABOUT US",
+                    "children": []
+                },
+                {
+                    "id": "7adcfaa0-5ba4-11ed-8b0b-2f85c73df232",
+                    "link": {
+                        "name": "iFOLIO Cloud | Industries",
+                        "type": "ifolio",
+                        "value": "https://ifolio.cloud/Industries-Served"
+                    },
+                    "type": "page",
+                    "title": "INDUSTRIES",
+                    "children": []
+                },
+                {
+                    "id": "7e8c1ff0-5ba4-11ed-8b0b-2f85c73df232",
+                    "link": {
+                        "name": "Success Stories & Case Studies | iFOLIO Cloud",
+                        "type": "ifolio",
+                        "value": "https://ifolio.cloud/successstories"
+                    },
+                    "type": "page",
+                    "title": "SUCCESS STORIES",
+                    "children": []
+                },
+                {
+                    "id": "89c5d000-5ba4-11ed-8b0b-2f85c73df232",
+                    "link": {
+                        "name": "iFOLIO Cloud | Careers",
+                        "type": "ifolio",
+                        "value": "https://ifolio.cloud/careers"
+                    },
+                    "type": "page",
+                    "title": "CAREERS",
+                    "children": []
                 }
             ],
-            "link": {
-                "type": "link",
-                "value": "http://seasonvar.ru/"
-            },
             "expanded": true
         },
         {
-            "id": "e1e6b180-5c1e-11ed-be7e-cb281a8f3f7b",
-            "type": "button",
-            "title": "button link",
+            "id": "a603c620-5e3b-11ed-9485-5711dd46fd25",
+            "link": {
+                "name": "iFOLIO Cloud | Marketing",
+                "type": "ifolio",
+                "value": "https://ifolio.cloud/MarketingCampaigns"
+            },
+            "type": "page",
+            "title": "MARKETING",
+            "children": []
+        },
+        {
+            "id": "49e015e0-5ba4-11ed-bb0b-f175ea16a348",
+            "link": {
+                "name": "iFOLIO Cloud | Campaigns",
+                "type": "ifolio",
+                "value": "https://ifolio.cloud/Campaigns"
+            },
+            "type": "page",
+            "title": "CAMPAIGNS",
             "children": [],
+            "expanded": true
+        },
+        {
+            "id": "4ce2ce90-5ba4-11ed-bb0b-f175ea16a348",
+            "link": {
+                "name": "iFOLIO Cloud | Analytics",
+                "type": "ifolio",
+                "value": "https://ifolio.cloud/Analytics"
+            },
+            "type": "page",
+            "title": "ANALYTICS",
+            "children": [],
+            "expanded": true
+        },
+        {
+            "id": "572b19c0-5ba4-11ed-bb0b-f175ea16a348",
+            "link": {
+                "name": "iFOLIO Cloud | Contact Us",
+                "type": "ifolio",
+                "value": "https://ifolio.cloud/contact"
+            },
+            "type": "page",
+            "title": "CONTACT",
+            "children": [],
+            "expanded": true
+        },
+        {
+            "id": "6a487110-5ba4-11ed-bb0b-f175ea16a348",
             "link": {
                 "type": "link",
-                "value": "https://aliexpress.ru/"
-            }
+                "value": "https://ifolio.cloud/ifolio/auth"
+            },
+            "type": "button",
+            "title": "LOG-IN",
+            "children": []
         }
     ],
     "mobileHeight": 65,
@@ -66,63 +137,63 @@ export const config = {
     "navBarTextBold": true,
     "navBarHoverColor": "#41c5c2",
     "navBarTextItalic": false,
-    "navBarTextSpacing": 10,
+    "navBarTextSpacing": 24,
     "logoCropperOptions": {
-        "x": 0,
-        "y": 0,
-        "zoom": 1.4,
-        "width": 500,
-        "height": 160,
+        "x": -12.058,
+        "y": -5.508,
+        "zoom": 0.6887298747763865,
+        "width": 574.692,
+        "height": 79.451,
         "rotate": 0,
         "scaleX": 1,
         "scaleY": 1,
         "imageBox": {
             "x": 0,
             "y": 0,
-            "width": 500,
-            "height": 160
+            "width": 559,
+            "height": 68
         },
-        "imgWidth": 250,
-        "imgHeight": 80,
+        "imgWidth": 559,
+        "imgHeight": 68,
         "imagePosition": {
-            "x": 0,
-            "y": 0,
-            "width": 100,
-            "height": 100
+            "x": 2.1,
+            "y": 6.94,
+            "width": 97.27,
+            "height": 85.59
         }
     },
     "navBarClickedColor": "#41c5c2",
-    "navBarRegularColor": "#41c5c2",
-    "navBarTextFontSize": 14,
+    "navBarRegularColor": "transparent",
+    "navBarTextFontSize": 12,
     "mobileLogoAlignment": "right",
     "mobileTextAlignment": "left",
-    "navBarTextAlignment": "left",
+    "navBarTextAlignment": "right",
     "navBarTextUnderline": false,
-    "navBarTextFontFamily": "Arial",
-    "navBarTextHoverColor": "#292e50",
-    "navBarTextClickedColor": "#292e50",
+    "navBarTextFontFamily": "Avenir-heavy",
+    "navBarTextHoverColor": "#ffffff",
+    "navBarTextClickedColor": "#ffffff",
     "navBarTextRegularColor": "#ffffff",
     "dropdownSettingsTextBold": false,
     "buttonSettingsBorderWidth": 2,
     "buttonSettingsRegularFill": "transparent",
-    "buttonSettingsRoundCorners": 20,
+    "buttonSettingsRoundCorners": 12,
     "dropdownSettingsTextItalic": false,
-    "navBarRegularOnScrollColor": "#41c5c2",
+    "navBarRegularOnScrollColor": "#1F2741",
     "buttonSettingsRegularBorder": "#fff",
-    "buttonSettingsTextColorHover": "#fff",
+    "buttonSettingsTextColorHover": "#ffffff",
     "dropdownSettingsInactiveFill": "#2cbab7",
     "dropdownSettingsTextFontSize": 14,
-    "buttonSettingsVerticalPadding": 8,
+    "buttonSettingsVerticalPadding": 10,
     "dropdownSettingsTextUnderline": false,
-    "buttonSettingsHoverClickedFill": "#292e50",
-    "buttonSettingsTextColorClicked": "#fff",
+    "buttonSettingsHoverClickedFill": "#25bec8",
+    "buttonSettingsTextColorClicked": "#ffffff",
     "buttonSettingsTextColorRegular": "#fff",
     "dropdownSettingsInactiveBorder": "#2cbab7",
     "dropdownSettingsTextColorHover": "#41c5c2",
     "dropdownSettingsTextFontFamily": "Arial",
     "buttonSettingsHorizontalPadding": 20,
     "dropdownSettingsVerticalPadding": 8,
-    "buttonSettingsHoverClickedBorder": "#fff",
+    "buttonSettingsHoverClickedBorder": "#25bec8",
     "dropdownSettingsHoverClickedFill": "#eeffff",
     "dropdownSettingsTextColorClicked": "#41c5c2",
     "dropdownSettingsTextColorRegular": "#fff",
