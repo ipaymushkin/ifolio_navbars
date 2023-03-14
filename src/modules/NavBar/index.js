@@ -99,7 +99,7 @@ const NavBar = ({
     return (
         <Wrapper ref={ref} height={height} navBarRegularColor={navBarRegularColor} isPreview={isPreview}
                  navBarBehavior={navBarBehavior}
-                 stickyOffset={stickyOffset} className={"navbar-desktop"} data-color={navBarRegularColor}
+                 stickyOffset={stickyOffset} className={"navbar-desktop navbar-hidden"} data-color={navBarRegularColor}
                  data-coloronscroll={navBarRegularOnScrollColor} isListView={isListView}>
             <Menu height={height}>
                 <LogoElement logoSrc={logoSrc} logoCropperOptions={logoCropperOptions}
