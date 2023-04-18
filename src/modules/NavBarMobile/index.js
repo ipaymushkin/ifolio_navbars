@@ -87,6 +87,7 @@ const NavBarMobile = ({
     return (
         <Container className={"navbar-mobile navbar-hidden"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
                    isConstructor={isConstructor} navBarRegularColor={navBarRegularColor}>
+            {open && <Background data-navbarbackground={true} stickyOffset={stickyOffset}/>}
             <Wrapper height={mobileHeight} ref={ref}
                      navBarRegularColor={wrapperColor}
                      data-mobile-header={true}>
@@ -190,6 +191,15 @@ const Container = styled.div`
   }
   }`;
 
+const Background = styled.div`
+  position: absolute;
+  top: ${({stickyOffset}) => stickyOffset}px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.1);
+`
+
 const ListWrapper = styled.div
 
     `
@@ -198,11 +208,11 @@ const ListWrapper = styled.div
       position: absolute;
       top: ${({mobileHeight}) => mobileHeight}px;
       ${({isDesktop}) => {
-          if (!isDesktop) {
-              return {
-                  width: '100%'
-              }
+        if (!isDesktop) {
+          return {
+            width: '100%'
           }
+        }
       }}
       height: ${({isConstructor}) => isConstructor ? 'auto' : 0};
       ${({isConstructor}) =>
@@ -268,6 +278,7 @@ const IconWrapper = styled.div`
   width: 44px;
   height: 44px;
   cursor: pointer;
+
   > div {
     margin: auto;
   }
