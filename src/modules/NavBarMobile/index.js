@@ -11,7 +11,7 @@ import NavBarPage from "./Page";
 
 const NavBarMobile = ({
                           config, stickyOffset = 0, isConstructor = false, isStatic = false, disabledRedirect = false,
-                          disabledListClick = false
+                          disabledListClick = false, isDesktop = false
                       }) => {
 
     const [open, setOpen] = useState(isConstructor);
@@ -24,6 +24,8 @@ const NavBarMobile = ({
     }, [isConstructor, open])
 
     const {
+        navBarHoverColor,
+        navBarClickedColor,
         mobileHeight,
         navBarRegularColor,
         navBarRegularOnScrollColor,
@@ -109,6 +111,7 @@ const NavBarMobile = ({
                          navBarTextUnderline={navBarTextUnderline}
                          navBarTextRegularColor={navBarTextRegularColor}
                          navBarTextSpacing={navBarTextSpacing}
+                         isDesktop={isDesktop}
             >
                 {
                     structure?.map(el => {
@@ -144,6 +147,9 @@ const NavBarMobile = ({
                                     mobileTextAlignment={mobileTextAlignment}
                                     isStatic={isStatic}
                                     isConstructor={isConstructor}
+                                    navBarHoverColor={navBarHoverColor}
+                                    navBarClickedColor={navBarClickedColor}
+
                                 />
                             );
                         }
@@ -191,7 +197,13 @@ const ListWrapper = styled.div
       flex-direction: column;
       position: absolute;
       top: ${({mobileHeight}) => mobileHeight}px;
-      width: 100%;
+      ${({isDesktop}) => {
+          if (!isDesktop) {
+              return {
+                  width: '100%'
+              }
+          }
+      }}
       height: ${({isConstructor}) => isConstructor ? 'auto' : 0};
       ${({isConstructor}) =>
               isConstructor &&

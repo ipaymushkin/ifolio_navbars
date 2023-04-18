@@ -23,7 +23,7 @@ export const PageWrapperDesktop = styled(PageWrapper)`
     background: ${({navBarClickedColor}) => navBarClickedColor};
     color: ${({navBarTextClickedColor}) => navBarTextClickedColor};
   }
-
+  
   ${({isDropdown, open, isStatic}) =>
           isDropdown && open && !isStatic &&
           css`

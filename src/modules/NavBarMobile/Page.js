@@ -18,7 +18,9 @@ const NavBarPage = memo(
          children,
          mobileTextAlignment,
          isStatic,
-         isConstructor
+         isConstructor,
+         navBarHoverColor,
+         navBarClickedColor
      }) => {
         const link = linkProps?.value;
         const [open, setOpen] = useState(isStatic);
@@ -34,12 +36,15 @@ const NavBarPage = memo(
         }, [disabledListClick, disabledRedirect, isDropdown, link, isConstructor]);
 
         return (
-            <Wrapper>
-                <Row isDropdown={isDropdown} link={!isDropdown ? link : undefined} onClick={onClick} mobileTextAlignment={mobileTextAlignment}>
-                    <PageWrapperMobile
-                        navBarTextHoverColor={navBarTextHoverColor}
-                        navBarTextClickedColor={navBarTextClickedColor}
-                    >
+            <Wrapper
+                navBarTextHoverColor={navBarTextHoverColor}
+                navBarTextClickedColor={navBarTextClickedColor}
+                navBarHoverColor={navBarHoverColor}
+                navBarClickedColor={navBarClickedColor}
+            >
+                <Row isDropdown={isDropdown} link={!isDropdown ? link : undefined} onClick={onClick}
+                     mobileTextAlignment={mobileTextAlignment}>
+                    <PageWrapperMobile>
                         {title}{' '}
                         {isDropdown && (
                             <IconWrapper data-arrow={true}>
@@ -83,6 +88,18 @@ const NavBarPage = memo(
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  &:hover {
+    background: ${({navBarHoverColor}) => navBarHoverColor};
+    color: ${({navBarTextHoverColor}) => navBarTextHoverColor};
+  }
+
+  &:active {
+    background: ${({navBarClickedColor}) => navBarClickedColor};
+    color: ${({navBarTextClickedColor}) => navBarTextClickedColor};
+  }
+  
+
 `;
 
 const Container = styled.div`
