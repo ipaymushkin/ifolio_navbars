@@ -8,6 +8,7 @@ import BurgerIcon from '../../icons/BurgerIcon.js';
 import CropImage from '../../components/CropImage/index.js';
 import NavBarButton from "./Button";
 import NavBarPage from "./Page";
+import {useOutsideClick} from "../../hooks/useOutsideClick";
 
 const NavBarMobile = ({
                           config, stickyOffset = 0, isConstructor = false, isStatic = false, disabledRedirect = false,
@@ -83,6 +84,9 @@ const NavBarMobile = ({
         wrapperColor = navBarRegularColor === 'transparent' ? navBarRegularOnScrollColor : navBarRegularColor
     }
 
+    const listRef = useOutsideClick(() => {
+        setOpen(false);
+    });
 
     return (
         <Container className={"navbar-mobile navbar-hidden"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
@@ -103,7 +107,7 @@ const NavBarMobile = ({
                     </LogoInner>
                 </LogoWrapper>
             </Wrapper>
-            <ListWrapper data-mobile-menu={true} mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight}
+            <ListWrapper ref={listRef} data-mobile-menu={true} mobileHeight={mobileHeight} offsetTop={stickyOffset + mobileHeight}
                          isConstructor={isConstructor} open={open}
                          navBarRegularColor={navBarRegularColor === 'transparent' ? isConstructor ? "#000" : navBarRegularOnScrollColor : navBarRegularColor}
                          mobileFontSize={mobileFontSize} navBarTextFontFamily={navBarTextFontFamily}
@@ -197,7 +201,7 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.25);
 `
 
 const ListWrapper = styled.div
