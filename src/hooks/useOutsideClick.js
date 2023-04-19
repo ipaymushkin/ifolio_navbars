@@ -4,7 +4,7 @@ export const useOutsideClick = (callback) => {
   const ref = createRef();
 
   const listener = (e) => {
-    if (ref.current && !ref?.current.contains(e.target)) {
+    if (ref.current && !ref?.current.contains(e.target) && !e.target.closest('[data-mobile-menu-button]')) {
       callback(e, ref.current);
     }
   };

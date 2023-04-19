@@ -58,7 +58,10 @@ const NavBarMobile = ({
         structure
     } = config;
 
-    const onClick = useCallback(() => {
+    const onClick = useCallback((e) => {
+        console.log('onClick');
+        e.preventDefault();
+        e.stopPropagation();
         if (!isConstructor && !disabledListClick) {
             setOpen(value => !value);
         }
@@ -85,6 +88,7 @@ const NavBarMobile = ({
     }
 
     const listRef = useOutsideClick(() => {
+        console.log('listRef');
         setOpen(false);
     });
 
