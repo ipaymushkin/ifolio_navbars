@@ -87,8 +87,8 @@ const NavBarMobile = ({
     }
 
     const listRef = useOutsideClick((e) => {
-        e.preventDefault();
-        e.stopPropagation();
+        // e.preventDefault();
+        // e.stopPropagation();
         setOpen(false);
     });
 
