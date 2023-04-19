@@ -95,7 +95,7 @@ const NavBarMobile = ({
     return (
         <Container className={"navbar-mobile navbar-hidden"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
                    isConstructor={isConstructor} navBarRegularColor={navBarRegularColor}>
-            <Background data-navbarbackground={true} mobileHeight={mobileHeight} open={open}/>
+            <Background data-navbarbackground={true} mobileHeight={mobileHeight} open={open || isStatic}/>
             <Wrapper height={mobileHeight} ref={ref}
                      navBarRegularColor={wrapperColor}
                      data-mobile-header={true}>
