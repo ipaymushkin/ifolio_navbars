@@ -36,14 +36,14 @@ const NavBarPage = memo(
         }, [disabledListClick, disabledRedirect, isDropdown, link, isConstructor]);
 
         return (
-            <Wrapper
-                navBarTextHoverColor={navBarTextHoverColor}
-                navBarTextClickedColor={navBarTextClickedColor}
-                navBarHoverColor={navBarHoverColor}
-                navBarClickedColor={navBarClickedColor}
-            >
+            <Wrapper>
                 <Row isDropdown={isDropdown} link={!isDropdown ? link : undefined} onClick={onClick}
-                     mobileTextAlignment={mobileTextAlignment}>
+                     mobileTextAlignment={mobileTextAlignment}
+                     navBarTextHoverColor={navBarTextHoverColor}
+                     navBarTextClickedColor={navBarTextClickedColor}
+                     navBarHoverColor={navBarHoverColor}
+                     navBarClickedColor={navBarClickedColor}
+                >
                     <PageWrapperMobile>
                         {title}{' '}
                         {isDropdown && (
@@ -69,6 +69,10 @@ const NavBarPage = memo(
                                 }}
                                 link={el.link?.value}
                                 mobileTextAlignment={mobileTextAlignment}
+                                navBarTextHoverColor={navBarTextHoverColor}
+                                navBarTextClickedColor={navBarTextClickedColor}
+                                navBarHoverColor={navBarHoverColor}
+                                navBarClickedColor={navBarClickedColor}
                             >
                                 <PageWrapperMobile
                                     navBarTextHoverColor={navBarTextHoverColor}
@@ -88,18 +92,6 @@ const NavBarPage = memo(
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-
-  &:hover {
-    background: ${({navBarHoverColor}) => navBarHoverColor};
-    color: ${({navBarTextHoverColor}) => navBarTextHoverColor};
-  }
-
-  &:active {
-    background: ${({navBarClickedColor}) => navBarClickedColor};
-    color: ${({navBarTextClickedColor}) => navBarTextClickedColor};
-  }
-  
-
 `;
 
 const Container = styled.div`

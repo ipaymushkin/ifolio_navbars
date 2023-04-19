@@ -2,19 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from "styled-components";
 
-const Row = ({children, onClick, mobileTextAlignment, link, isDropdown}) => {
+
+
+const Row = ({
+                 children,
+                 onClick,
+                 mobileTextAlignment,
+                 link,
+                 isDropdown,
+                 navBarTextHoverColor,
+                 navBarTextClickedColor,
+                 navBarHoverColor,
+                 navBarClickedColor
+             }) => {
 
     return (
-        <Wrapper onClick={onClick} mobileTextAlignment={mobileTextAlignment} data-link={link} data-isdropdown={isDropdown}>
+        <Wrapper onClick={onClick} mobileTextAlignment={mobileTextAlignment} data-link={link}
+                 data-isdropdown={isDropdown}
+                 navBarTextHoverColor = {navBarTextHoverColor}
+                 navBarTextClickedColor = {navBarTextClickedColor}
+                 navBarHoverColor = {navBarHoverColor}
+                 navBarClickedColor = {navBarClickedColor}
+        >
             {children}
         </Wrapper>
     );
 };
 
 const Wrapper = styled.div`
-    padding: 15px;
-    display: flex;
-    justify-content: ${({mobileTextAlignment}) => mobileTextAlignment === 'center' ? 'center' : 'flex-start'};
+  padding: 15px;
+  display: flex;
+  justify-content: ${({mobileTextAlignment}) => mobileTextAlignment === 'center' ? 'center' : 'flex-start'};
+
+  &:hover {
+    background: ${({navBarHoverColor}) => navBarHoverColor};
+    color: ${({navBarTextHoverColor}) => navBarTextHoverColor};
+  }
+
+  &:active {
+    background: ${({navBarClickedColor}) => navBarClickedColor};
+    color: ${({navBarTextClickedColor}) => navBarTextClickedColor};
+  }
+
 `
 
 Row.propTypes = {
