@@ -30,7 +30,7 @@ const NavBarButton = memo(
             }
         }, [link, disabledRedirect, isConstructor]);
         return (
-            <Row onClick={onClick} link={link} mobileTextAlignment={mobileTextAlignment}>
+            <Row onClick={onClick} link={link} mobileTextAlignment={mobileTextAlignment} isButton={true}>
                 <ButtonWrapper
                     buttonSettingsRoundCorners={buttonSettingsRoundCorners}
                     buttonSettingsBorderWidth={buttonSettingsBorderWidth}
