@@ -95,7 +95,7 @@ const NavBarMobile = ({
     return (
         <Container className={"navbar-mobile navbar-hidden"} navBarBehavior={navBarBehavior} stickyOffset={stickyOffset}
                    isConstructor={isConstructor} navBarRegularColor={navBarRegularColor}>
-            {open && <Background data-navbarbackground={true} mobileHeight={mobileHeight}/>}
+            <Background data-navbarbackground={true} mobileHeight={mobileHeight} open={open}/>
             <Wrapper height={mobileHeight} ref={ref}
                      navBarRegularColor={wrapperColor}
                      data-mobile-header={true}>
@@ -206,6 +206,13 @@ const Background = styled.div`
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.25);
+  ${({open}) => {
+      if (!open) {
+          return {
+              display: 'none'
+          }
+      }
+  }}
 `
 
 const ListWrapper = styled.div
