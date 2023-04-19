@@ -1,6 +1,6 @@
 {
   "name": "ifolio_navbars",
-  "version": "5.0.7",
+  "version": "5.0.8",
   "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
