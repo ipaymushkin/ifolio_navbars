@@ -59,7 +59,6 @@ const NavBarMobile = ({
     } = config;
 
     const onClick = useCallback((e) => {
-        console.log('onClick');
         e.preventDefault();
         e.stopPropagation();
         if (!isConstructor && !disabledListClick) {
@@ -87,8 +86,9 @@ const NavBarMobile = ({
         wrapperColor = navBarRegularColor === 'transparent' ? navBarRegularOnScrollColor : navBarRegularColor
     }
 
-    const listRef = useOutsideClick(() => {
-        console.log('listRef');
+    const listRef = useOutsideClick((e) => {
+        e.preventDefault();
+        e.stopPropagation();
         setOpen(false);
     });
 
