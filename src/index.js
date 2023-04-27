@@ -1,5 +1,6 @@
-import NavBar from "./modules/NavBar";
-import NavBarMobile from "./modules/NavBarMobile";
-import {logoImageHeight, logoImageWidth} from "./consts";
+import { logoImageHeight, logoImageWidth } from "./consts";
 
-export {NavBar, NavBarMobile, logoImageHeight, logoImageWidth};
+export * from "./utils";
+export * from "./modules";
+
+export { logoImageHeight, logoImageWidth };
